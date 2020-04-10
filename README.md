@@ -27,5 +27,5 @@ do tamanho do texto
 
 * Missão: Aumentar seu clã de fãns e ficar mais próximo do(a) seu(sua) artista
 * - O jogo é de modo historia, os balões vão aparecer, simulando conversas que o protagonista faz, tipo whatsapp
-* - E o jogador escolhe opções que aparece, a idéia é cada um ter um jogo unicio e ir fazendo sua história
+* - E o jogador escolhe opções que aparece, a idéia é cada um ter um jogo únicio e ir fazendo sua história
 * - Cada um terá um final diferente
