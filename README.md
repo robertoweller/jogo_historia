@@ -1,4 +1,4 @@
-# Necessidades para o jogo, preciso de:
+# Necessidades para o jogo, precios de:
 
 * Imagens de fundo (tenho alguns exemplos)
 * Saber como dar o tempo de adicionar cada Label
@@ -25,4 +25,7 @@ do tamanho do texto
 
 * Nome do jogo: PerdiTuBes
 
-* Missão: Aumentar seu clã de fãns e ficar mais próximo do seu(sua) artista
+* Missão: Aumentar seu clã de fãns e ficar mais próximo do(a) seu(sua) artista
+* - O jogo é de modo historia, os balões vão aparecer, simulando conversas que o protagonista faz, tipo whatsapp
+* - E o jogador escolhe opções que aparece, a idéia é cada um ter um jogo unicio e ir fazendo sua história
+* - Cada um terá um final diferente
