@@ -1,4 +1,4 @@
-# Necessidades para o jogo, precios de:
+# Necessidades para o jogo, preciso de:
 
 * Imagens de fundo (tenho alguns exemplos)
 * Saber como dar o tempo de adicionar cada Label
