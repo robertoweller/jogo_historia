@@ -2,7 +2,7 @@
 
  - [ ] Imagens de fundo (tenho alguns exemplos)
 - [ ] Saber como dar o tempo de adicionar cada Label
-- [ ] Definir qual paleta de cores será usadas
+- [X] Definir qual paleta de cores será usadas (Por enquanto é o que está definido)
 
 -------------------------------------
 # Idéia inicial 
