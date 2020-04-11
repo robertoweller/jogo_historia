@@ -1,8 +1,8 @@
 # Necessidades para o jogo, preciso de:
 
-* Imagens de fundo (tenho alguns exemplos)
-* Saber como dar o tempo de adicionar cada Label
-* Definir qual paleta de cores será usadas
+ - [ ] Imagens de fundo (tenho alguns exemplos)
+- [ ] Saber como dar o tempo de adicionar cada Label
+- [ ] Definir qual paleta de cores será usadas
 
 -------------------------------------
 # Idéia inicial 
