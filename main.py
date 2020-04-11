@@ -27,7 +27,13 @@ class Conteudo(BoxLayout):
 
 class PerdiTubes(App):
     def build(self):
-        return Mensagem(['Testando', 'Aqui terá uma mensagem!', 'Esse é um texto \nque passa a caixa \nde mensagem espero poder \nresolver logo isso'])
+        return Mensagem(['Testando',
+                         'Aqui terá uma mensagem!',
+                         'Esse é um texto que passa a '
+                         '\ncaixa de mensagem espero poder '
+                         '\nresolver logo isso',
+                         'Outra mensagem adicionada'
+                         ])
 
 
 if __name__ == '__main__':

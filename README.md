@@ -3,6 +3,7 @@
  - [ ] Imagens de fundo (tenho alguns exemplos)
 - [ ] Saber como dar o tempo de adicionar cada Label
 - [X] Definir qual paleta de cores será usadas (Por enquanto é o que está definido)
+- [ ] Por imagem do personagem, representando a pessoa que fala
 
 -------------------------------------
 # Idéia inicial 
