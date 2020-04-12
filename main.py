@@ -27,12 +27,13 @@ class Conteudo(BoxLayout):
 
 class PerdiTubes(App):
     def build(self):
-        return Mensagem(['Testando',
-                         'Aqui terá uma mensagem!',
+        return Mensagem(['Olá eu sou a pessoa inventada \npara explicar esse jogo',
                          'Esse é um texto que passa a '
                          '\ncaixa de mensagem espero poder '
                          '\nresolver logo isso',
-                         'Outra mensagem adicionada'
+                         'Viu? Tem muita coisa que \nprecisa ser melhorada',
+                         'O foco de agora é trabalhar \nnessas mensagens que vão vão \nsubir',
+                         'Já é possivel \nrolar o texto quando quando as \nmensagens passa a tela'
                          ])
 
 
