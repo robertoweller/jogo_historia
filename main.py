@@ -11,10 +11,19 @@ Ler sober o jogo no arquivo README.md
 class Mensagem(ScrollView):
     def __init__(self, mensagem, **kwargs):
         super().__init__(**kwargs)
+        self.todas_mensagnes = len(mensagem)
+        self.conta = 0
+        # Adicionar uma lista para inverter?
         # A classe incial estará esperando a classe mensagem como argumento
-        # Dentor de mensagem ficara o conteudo daclasse Conteudo e será adicionado o widget da mensagem.
-        for mensagem in mensagem:
-            self.ids.men.add_widget(Conteudo(text=mensagem))
+        # Dentro de mensagem ficara o conteudo daclasse Conteudo e será adicionado o widget da mensagem.
+        print(mensagem[0])
+        # for mensagem in mensagem:
+        #     self.ids.men.add_widget(Conteudo(text=mensagem))
+
+        def chama_mensagem():
+            if self.conta < self.todas_mensagnes:
+                print(mensagem[0])
+                self.conta += 1
 
 
 class Conteudo(BoxLayout):
