@@ -15,7 +15,9 @@ do tamanho do texto, mas acho que vou deixar com um tempo genérico
 --------------------------------------
 
 # Caracteristicas do jogo:
-
+* Motivos para esse jogo ser em kivy(python3):
+   - Por conta da forma que o kivy trabalha a biblioteca gráfica é ótima e acelerada
+   - Também quero integrar esse projeto, num futuro próximo, aos dispositivos androids, kivy facilita isso.
 * Jogo será para meninas?
    - Jogo tentará abranger ambos o público,
    - mas acredito que pode só um tipo de público poderá gostar mais.
