@@ -65,6 +65,8 @@ class EuFala(BoxLayout):
 
 class PerdiTubes(App):
     def build(self):
+        # Coloque #euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
+        # Ou coloque #cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
         return Mensagem(['#euu oi', '#euu oii', '#cay oi', '#euu Você que comer algo?',
                          '#euu ?', '#cay Quero...'])
 
