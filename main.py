@@ -16,6 +16,8 @@ class Mensagem(ScrollView):
         self.mensagem = mensagem
         self.todas_mensagnes = len(mensagem)
         self.conta = 0
+        self.fala = []
+
 
         # O Clock atende o que eu quero, que é adicionar uma mensagem, depois de 4 segundo adiciona outra.
         Clock.schedule_interval(self.chama_mensagem, 4)
@@ -27,16 +29,32 @@ class Mensagem(ScrollView):
         # Vai adicionar uma a uma as mensagens
 
     def chama_mensagem(self, sla):
+
         # Quando acabar as mensagens vai parar de adicionar os widgets, isso é para não dar erro.
-        if self.conta < self.todas_mensagnes:
-            print(self.mensagem[self.conta])
+        if self.conta <= self.todas_mensagnes-1:
+            persons = ['#cay', '#euu']
+            falas = {
+                '#cay': CaylaFala(text=self.mensagem[self.conta]),
+                '#euu': EuFala(text=self.mensagem[self.conta])
+            }
+            # print(self.mensagem[self.conta])
 
             # Dentro de mensagem ficará o conteudo daclasse Conteudo e será adicionado o widget da mensagem.
-            self.ids.men.add_widget(Conteudo(text=self.mensagem[self.conta]))
-            self.conta += 1
+            # self.ids.men.add_widget(CaylaFala(text=self.mensagem[self.conta]))
+
+            for per in range(self.conta):
+                if per not in self.fala:
+                    for ff in persons:
+                        self.ids.men.add_widget(falas[ff])
+                        self.fala.append(per)
+
+                    # Esse print mostra qual personagem está falando no momento
+                    # print(per[:4])
+        self.conta += 1
+        # self.ids.men.add_widget(falas[per])
 
 
-class Conteudo(BoxLayout):
+class CaylaFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
         # e o conteudo espera text como arguemnto que é passado na classe mensagem
@@ -46,22 +64,15 @@ class Conteudo(BoxLayout):
 
 # Vai fazer mesma tarefa que a função Conteudo, mas com outra configurações
 # Vai ser com balões invertido
-class EuFalando(BoxLayout):
+class EuFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
-        pass
+        self.ids.meu.text = text
 
 
 class PerdiTubes(App):
     def build(self):
-        return Mensagem(['Olá eu sou a pessoa inventada \npara explicar esse jogo',
-                         'Esse é um texto que passa a '
-                         '\ncaixa de mensagem espero poder '
-                         '\nresolver logo isso',
-                         'Viu? Tem muita coisa que \nprecisa ser melhorada',
-                         'O foco de agora é trabalhar \nnessas mensagens que vão vão \nsubir',
-                         'Já é possivel \nrolar o texto quando quando as \nmensagens passa a tela'
-                         ])
+        return Mensagem(['#euu oi', '#euu oii', '#cay oi', '#euu Você que comer algo?', '#cay Quero :)'])
 
 
 if __name__ == '__main__':

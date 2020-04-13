@@ -5,7 +5,7 @@
         size_hint_y:None
         height:self.minimum_height
 
-<Conteudo>:
+<CaylaFala>:
     size_hint_y:None
     height:150
 
@@ -29,3 +29,29 @@
     Label:
         size_hint_y:.1
         size_hint_x:.1
+
+<EuFala>:
+    size_hint_y:None
+    height:150
+    # Esse label é para dar um espaço do limite da janéla (um modo meio gambiarra)
+    Label:
+        size_hint_y:.1
+        size_hint_x:.1
+
+    Button:
+        background_color: 1, 1, 1, 1
+        background_normal: 'img/fundo_balao.png'
+        border: 0, 0, 0, 0
+        background_down: 'img/fundo_balao.png'
+        id: meu
+        font_size: 35
+        size_hint_y:.9
+        disabled: False
+
+    Button:
+        border: 0, 0, 0, 0
+        background_normal: 'img/personagens/Base2.png'
+        size_hint_y:.9
+        size_hint_x:.2
+        font_size: 30
+
