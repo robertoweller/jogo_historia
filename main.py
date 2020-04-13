@@ -44,6 +44,14 @@ class Conteudo(BoxLayout):
         self.ids.lab.text = text
 
 
+# Vai fazer mesma tarefa que a função Conteudo, mas com outra configurações
+# Vai ser com balões invertido
+class EuFalando(BoxLayout):
+    def __init__(self, text='', **kwargs):
+        super().__init__(**kwargs)
+        pass
+
+
 class PerdiTubes(App):
     def build(self):
         return Mensagem(['Olá eu sou a pessoa inventada \npara explicar esse jogo',
