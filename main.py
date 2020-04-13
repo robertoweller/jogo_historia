@@ -31,27 +31,20 @@ class Mensagem(ScrollView):
     def chama_mensagem(self, sla):
 
         # Quando acabar as mensagens vai parar de adicionar os widgets, isso é para não dar erro.
-        if self.conta <= self.todas_mensagnes-1:
-            persons = ['#cay', '#euu']
+        if self.conta < self.todas_mensagnes:
+            # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
-                '#cay': CaylaFala(text=self.mensagem[self.conta]),
-                '#euu': EuFala(text=self.mensagem[self.conta])
+                '#cay': CaylaFala(text=self.mensagem[self.conta][4:]),
+                '#euu': EuFala(text=self.mensagem[self.conta][4:])
             }
+
             # print(self.mensagem[self.conta])
 
-            # Dentro de mensagem ficará o conteudo daclasse Conteudo e será adicionado o widget da mensagem.
-            # self.ids.men.add_widget(CaylaFala(text=self.mensagem[self.conta]))
-
-            for per in range(self.conta):
-                if per not in self.fala:
-                    for ff in persons:
-                        self.ids.men.add_widget(falas[ff])
-                        self.fala.append(per)
-
-                    # Esse print mostra qual personagem está falando no momento
-                    # print(per[:4])
-        self.conta += 1
-        # self.ids.men.add_widget(falas[per])
+            # Procura dentro da biblioteca quem está falando
+            self.ids.men.add_widget(falas[self.mensagem[self.conta][:4]])
+            # Nesse print mostra quem está falando no momento
+            print(self.mensagem[self.conta][:4])
+            self.conta += 1
 
 
 class CaylaFala(BoxLayout):
