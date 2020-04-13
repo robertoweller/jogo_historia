@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.boxlayout import BoxLayout
+from kivy.clock import Clock
 
 
 '''
@@ -11,19 +12,23 @@ Ler sober o jogo no arquivo README.md
 class Mensagem(ScrollView):
     def __init__(self, mensagem, **kwargs):
         super().__init__(**kwargs)
+        self.mensagem = mensagem
         self.todas_mensagnes = len(mensagem)
         self.conta = 0
         # Adicionar uma lista para inverter?
         # A classe incial estará esperando a classe mensagem como argumento
         # Dentro de mensagem ficara o conteudo daclasse Conteudo e será adicionado o widget da mensagem.
-        print(mensagem[0])
+        Clock.schedule_interval(self.chama_mensagem, 4)
         # for mensagem in mensagem:
         #     self.ids.men.add_widget(Conteudo(text=mensagem))
 
-        def chama_mensagem():
-            if self.conta < self.todas_mensagnes:
-                print(mensagem[0])
-                self.conta += 1
+        # Vai adicionar uma a uma as mensagens
+
+    def chama_mensagem(self, sla):
+        if self.conta < self.todas_mensagnes:
+            print(self.mensagem[self.conta])
+            self.ids.men.add_widget(Conteudo(text=self.mensagem[self.conta]))
+            self.conta += 1
 
 
 class Conteudo(BoxLayout):
