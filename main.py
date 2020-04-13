@@ -65,7 +65,8 @@ class EuFala(BoxLayout):
 
 class PerdiTubes(App):
     def build(self):
-        return Mensagem(['#euu oi', '#euu oii', '#cay oi', '#euu Você que comer algo?', '#cay Quero :)'])
+        return Mensagem(['#euu oi', '#euu oii', '#cay oi', '#euu Você que comer algo?',
+                         '#euu ?', '#cay Quero...'])
 
 
 if __name__ == '__main__':
