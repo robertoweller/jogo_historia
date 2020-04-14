@@ -32,8 +32,8 @@ class Mensagem(BoxLayout):
         if self.conta < self.todas_mensagnes:
             # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
-                '#cay': CaylaFala(text=self.mensagem[self.conta][4:]),
-                '#euu': EuFala(text=self.mensagem[self.conta][4:])
+                '@cay': CaylaFala(text=self.mensagem[self.conta][4:]),
+                '@euu': EuFala(text=self.mensagem[self.conta][4:])
             }
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
@@ -44,10 +44,15 @@ class Mensagem(BoxLayout):
             self.conta += 1
 
     def conversa_digitada(self):
-        # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         mifala = self.ids.mifala.text
-        self.ids.men.add_widget(EuFala(text=mifala))
-        self.ids.mifala.text = ''
+        falas = {
+            '@cay': CaylaFala(text=mifala[4:]),
+            '@euu': EuFala(text=mifala[4:])
+        }
+        # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
+
+        self.ids.men.add_widget(falas[mifala[:4]])
+        self.ids.mifala.text = '@euu '
 
 
 class CaylaFala(BoxLayout):
@@ -67,10 +72,10 @@ class EuFala(BoxLayout):
 
 class PerdiTubes(App):
     def build(self):
-        # Coloque #euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
-        # Ou coloque #cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['#euu oii', '#cay oi', '#euu Você que comer algo?',
-                         '#euu ?', '#cay Quero :)'])
+        # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
+        # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
+        return Mensagem(['@euu oii', '@cay oi', '@euu Você que comer algo?',
+                         '@euu ?', '@cay Quero :)'])
 
 
 if __name__ == '__main__':
