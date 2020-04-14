@@ -50,8 +50,11 @@ class Mensagem(BoxLayout):
             '@euu': EuFala(text=mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
-
         self.ids.men.add_widget(falas[mifala[:4]])
+
+        # Escrever no terminal a conversa que stá acontecendo
+        print(mifala)
+        # Limpa o texto da caixa e deixa o @eeu, coloquei aqui o personagem que vai aparece mais, para facilitar
         self.ids.mifala.text = '@euu '
 
 
@@ -63,7 +66,7 @@ class CaylaFala(BoxLayout):
         self.ids.lab.text = text
 
 
-# Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e out ras imagens
+# Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e outras imagens
 class EuFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
