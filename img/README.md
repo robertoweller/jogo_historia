@@ -11,7 +11,10 @@ Contact: mjames@gmail.com
 Art by Stephen Challener (Redshrike), hosted by OpenGameArt.org
 
 
-## shichimi publish..png
+## shichimi publish.png
+
+Author: diamonddmgirl
 
 Profile: https://opengameart.org/users/diamonddmgirl
+
 https://opengameart.org/content/24x32-peppercarrot-characters
