@@ -1,9 +1,24 @@
 <Mensagem>:
+    orientation:'vertical'
+    ScrollView:
+        BoxLayout:
+            orientation:'vertical'
+            id: men
+            orientation:'vertical'
+            size_hint_y:None
+            height:self.minimum_height
     BoxLayout:
-        id: men
-        orientation:'vertical'
         size_hint_y:None
-        height:self.minimum_height
+        height: 60
+        TextInput:
+            id: mifala
+            text: ''
+        Button:
+            text:'+'
+            size_hint_x:None
+            width:60
+            on_release: root.conversa_digitada()
+
 
 <CaylaFala>:
     size_hint_y:None

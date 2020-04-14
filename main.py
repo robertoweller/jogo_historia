@@ -1,5 +1,4 @@
 from kivy.app import App
-from kivy.uix.scrollview import ScrollView
 from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 
@@ -8,7 +7,7 @@ Ler sobre o jogo no arquivo README.md
 '''
 
 
-class Mensagem(ScrollView):
+class Mensagem(BoxLayout):
     def __init__(self, mensagem, **kwargs):
         super().__init__(**kwargs)
         # A classe incial estará esperando a classe mensagem como argumento
@@ -17,7 +16,6 @@ class Mensagem(ScrollView):
         self.todas_mensagnes = len(mensagem)
         self.conta = 0
         self.fala = []
-
 
         # O Clock atende o que eu quero, que é adicionar uma mensagem, depois de 4 segundo adiciona outra.
         Clock.schedule_interval(self.chama_mensagem, 4)
@@ -38,25 +36,29 @@ class Mensagem(ScrollView):
                 '#euu': EuFala(text=self.mensagem[self.conta][4:])
             }
 
-            # print(self.mensagem[self.conta])
-
-            # Procura dentro da biblioteca quem está falando
+            # Procura dentro da biblioteca quem está falando e adicina o widget
             self.ids.men.add_widget(falas[self.mensagem[self.conta][:4]])
             # Nesse print mostra quem está falando no momento
+            # Apague o [:4] para ver a conversa toda no print
             print(self.mensagem[self.conta][:4])
             self.conta += 1
+
+    def conversa_digitada(self):
+        # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
+        mifala = self.ids.mifala.text
+        self.ids.men.add_widget(EuFala(text=mifala))
+        self.ids.mifala.text = ''
 
 
 class CaylaFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
-        # e o conteudo espera text como arguemnto que é passado na classe mensagem
+        # e o conteudo espera text como arguemento que é passado na classe mensagem
         # se não for passado nada, terá texto vazio ''
         self.ids.lab.text = text
 
 
-# Vai fazer mesma tarefa que a função Conteudo, mas com outra configurações
-# Vai ser com balões invertido
+# Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e out ras imagens
 class EuFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
@@ -67,8 +69,8 @@ class PerdiTubes(App):
     def build(self):
         # Coloque #euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque #cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['#euu oi', '#euu oii', '#cay oi', '#euu Você que comer algo?',
-                         '#euu ?', '#cay Quero...'])
+        return Mensagem(['#euu oii', '#cay oi', '#euu Você que comer algo?',
+                         '#euu ?', '#cay Quero :)'])
 
 
 if __name__ == '__main__':
