@@ -22,32 +22,34 @@
 
 <CaylaFala>:
     size_hint_y:None
-    height:150
+    height:150/2
 
     Button:
         border: 0, 0, 0, 0
         background_normal: 'img/personagens/cayla_rosa.png'
         size_hint_y:.9
-        size_hint_x:.25
+        size_hint_x:.25/2
         font_size: 30
-
+    Label:
+        size_hint_y:.1/2
+        size_hint_x:.1/2
     Button:
         background_color: 1, 1, 1, 1
         background_normal: 'img/balao_rosa.png'
         border: 0, 0, 0, 0
         background_down: 'img/balao_rosa.png'
         id: lab
-        font_size: 35
-        size_hint_y:.9
+        font_size: 35/2
+        size_hint_y:.9/2
         disabled: False
 
     Label:
-        size_hint_y:.1
-        size_hint_x:.1
+        size_hint_y:.2
+        size_hint_x:.2
 
 <EuFala>:
     size_hint_y:None
-    height:150
+    height:150/2
     # Esse label é para dar um espaço do limite da janéla (um modo meio gambiarra).
     Label:
         size_hint_y:.1
@@ -59,14 +61,14 @@
         border: 0, 0, 0, 0
         background_down: 'img/balao_azul.png'
         id: meu
-        font_size: 35
-        size_hint_y:.9
+        font_size: 35/2
+        size_hint_y:.9/2
         disabled: False
 
     Button:
         border: 0, 0, 0, 0
         background_normal: 'img/personagens/Base2.png'
         size_hint_y:.9
-        size_hint_x:.2
+        size_hint_x:.2/2
         font_size: 30
 
