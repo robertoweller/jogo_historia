@@ -1,9 +1,11 @@
+
+
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 
-'''
-Ler sobre o jogo no arquivo README.md
+'''ize_hint_y:.1
+        size_hint_x:.1 jogo no arquivo README.md
 '''
 
 
@@ -38,6 +40,13 @@ class Mensagem(BoxLayout):
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
             self.ids.men.add_widget(falas[self.mensagem[self.conta][:4]])
+            # Testando achar uma formade achar a posição dos elementos e mudar
+            # self.ids.posi.scroll_y = 1.0
+            print(self.ids.posi.scroll_x)
+            # Distancia de de rolagem em pixels
+            # print(self.ids.posi.convert_distance_to_scroll('scroll_x', 'scroll_y'))
+            # Mostrar o posicionamento das margens
+            print(self.ids.posi.bar_margin)
             # Nesse print mostra quem está falando no momento
             # Apague o [:4] para ver a conversa toda no print
             print(self.mensagem[self.conta][:4])
@@ -77,7 +86,10 @@ class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@cay oi hihi'])
+        return Mensagem(['@cay oi hihi', '@euu olá :)', '@cay quero pão de queijo', '@euu olá :)', '@euu olá :)',
+                         '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)'
+                         , '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)'
+                         , '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)', '@euu olá :)'])
 
 
 if __name__ == '__main__':
