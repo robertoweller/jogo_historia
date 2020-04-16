@@ -10,6 +10,16 @@
             height:self.minimum_height
     BoxLayout:
         size_hint_y:None
+        size_hint_x:None
+        height: 50
+        width: 50
+        Button:
+            background_normal: 'img/icons/action_save.gif'
+            border: 2, 2, 2, 2
+            on_release:root.salva()
+
+    BoxLayout:
+        size_hint_y:None
         height: 60
         TextInput:
             id: mifala
