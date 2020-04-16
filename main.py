@@ -3,7 +3,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 import os
 '''
-       Leia maus sobre o jogo no arquivo README.md
+       Leia mais sobre o jogo no arquivo README.md
 '''
 
 
