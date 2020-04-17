@@ -66,11 +66,7 @@
 
 <EuFala>:
     size_hint_y:None
-    height:150/2
-    Label:
-        size_hint_y:.1
-        size_hint_x:.1
-
+    height:150/2  
     Button:
         text_size:(450, None)
         font_size:'20sp'
@@ -81,11 +77,27 @@
         background_down: 'img/balao_azul.png'
         id: meu
         size_hint_y:.9/2
+        size_hint_x:.2
         # disabled: False
 
     Button:
         border: 0, 0, 0, 0
         background_normal: 'img/personagens/Base2.png'
         size_hint_y:1
-        size_hint_x:.1
+        size_hint_x:.05
         font_size: 30
+
+<Sem>:
+    size_hint_y:None
+    height:50 
+    Button:
+        text_size:(450, None)
+        font_size:'20sp'
+        halign:'right'
+        background_color: 1, 1, 1, 1
+        background_normal: 'img/balao_azul.png'
+        border: 0, 0, 0, 0
+        background_down: 'img/balao_azul.png'
+        id: sem
+        size_hint_y:1
+        size_hint_x:.2

@@ -35,7 +35,8 @@ class Mensagem(BoxLayout):
             # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
                 '@cay': CaylaFala(text=self.mensagem[self.conta][4:]),
-                '@euu': EuFala(text=self.mensagem[self.conta][4:])
+                '@euu': EuFala(text=self.mensagem[self.conta][4:]),
+                '@sem': Sem(text=self.mensagem[self.conta][4:])
             }
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
@@ -49,7 +50,8 @@ class Mensagem(BoxLayout):
         mifala = self.ids.mifala.text
         falas = {
             '@cay': CaylaFala(text=mifala[4:]),
-            '@euu': EuFala(text=mifala[4:])
+            '@euu': EuFala(text=mifala[4:]),
+            '@sem': Sem(text=mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         self.ids.men.add_widget(falas[mifala[:4]])
@@ -94,11 +96,17 @@ class EuFala(BoxLayout):
         self.ids.meu.text = text
 
 
+class Sem(BoxLayout):
+    def __init__(self, text='', **kwargs):
+        super().__init__(**kwargs)
+        self.ids.sem.text = text
+
+
 class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@cay oi hihi', '@cay eu queria falar algo'])
+        return Mensagem(['@sem ...','@sem espero que não se incomode'])
 
 
 if __name__ == '__main__':
