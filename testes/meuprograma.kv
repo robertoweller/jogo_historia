@@ -7,12 +7,19 @@
         halign:'right'
         text:'Olá, tudo bom? Eu quero testa se esse texto passa da tela básicamente é só isso:)'
     BoxLayout:
-        size_hint:(None, .1)
+        size_hint:(None, .2)
         # orientation:'vertical'
         # Height não tem efeito por conta do .1 do size_hint(None, .1)
         # height:800
-        width:500
-        Button: 
+        id:box
+        width:'45px'
+        Button:
+            id:bot
+            underline: True
+            text:'Linha auto-dimensionada'
+            text_size:(None, None)
+            halign:'left'
+            font_size:'35px'
     Button:
         text_size:(600, None)
         font_size:'34sp'

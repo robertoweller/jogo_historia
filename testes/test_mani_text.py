@@ -3,11 +3,15 @@ from kivy.uix.boxlayout import BoxLayout
 
 
 class TestTexto(BoxLayout):
-    pass
-
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # Botão do meio se adapta à quantidades de letras (só na largura do botão)
+        self.ids.bot.text_size[0] = 20*len(self.ids.bot.text)-15
+        self.ids.box.width = f'{20*len(self.ids.bot.text)}px'
 
 class MeuPrograma(App):
     def build(self):
+        
         return TestTexto()
 
 
