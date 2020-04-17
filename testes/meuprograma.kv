@@ -7,8 +7,13 @@
         halign:'right'
         text:'Olá, tudo bom? Eu quero testa se esse texto passa da tela básicamente é só isso:)'
     BoxLayout:
-        size_hint:(1, None)
-        height:10
+        size_hint:(None, .1)
+        # orientation:'vertical'
+        # Height não tem efeito por conta do .1 do size_hint(None, .1)
+        # height:800
+        width:500
+        Button:
+            
     Button:
         text_size:(600, None)
         font_size:'34sp'

@@ -78,26 +78,28 @@
         id: meu
         size_hint_y:.9/2
         size_hint_x:.2
-        # disabled: False
-
     Button:
         border: 0, 0, 0, 0
         background_normal: 'img/personagens/Base2.png'
         size_hint_y:1
-        size_hint_x:.05
+        size_hint_x:.02
         font_size: 30
 
 <Sem>:
     size_hint_y:None
     height:50 
-    Button:
-        text_size:(450, None)
-        font_size:'20sp'
-        halign:'right'
-        background_color: 1, 1, 1, 1
-        background_normal: 'img/balao_azul.png'
-        border: 0, 0, 0, 0
-        background_down: 'img/balao_azul.png'
-        id: sem
-        size_hint_y:1
-        size_hint_x:.2
+    BoxLayout:
+        size_hint:(1, .5)
+        # orientation:'vertical'
+        # Height não tem efeito por conta do .1 do size_hint(None, .1)
+        # height:800
+        width:800
+        Button:
+            text_size:(500, None)
+            font_size:'20sp'
+            halign:'right'
+            background_color: 1, 1, 1, 1
+            background_normal: 'img/balao_azul.png'
+            border: 0, 0, 0, 0
+            background_down: 'img/balao_azul.png'
+            id: sem
