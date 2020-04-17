@@ -106,7 +106,7 @@ class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@sem ...','@sem espero que não se incomode'])
+        return Mensagem(['@euu ...','@sem espero que não se incomode', '@cay claro que não'])
 
 
 if __name__ == '__main__':
