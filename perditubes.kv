@@ -61,14 +61,17 @@
         disabled: False
 
     Label:
-        size_hint_y:.8
+        size_hint_y:.2
         size_hint_x:.2
 
 <EuFala>:
     height:150/2  
     size_hint_y:None
+    Label:
+        size_hint_y:.02
+        size_hint_x:.02
     Button:
-        text_size:(550, None)
+        text_size:(500, None)
         font_size:'20sp'
         halign:'right'
         background_color: 1, 1, 1, 1
@@ -88,14 +91,17 @@
 <Sem>:
     size_hint_y:None
     height:150/2 
+    Label:
+        size_hint_y:.02
+        size_hint_x:.02
     BoxLayout:
         size_hint:(None, .5)
         # orientation:'vertical'
         # Height não tem efeito por conta do .1 do size_hint(None, .1)
         # height:800
-        width:600
+        width:550
         Button:
-            text_size:(550, None)
+            text_size:(500, None)
             font_size:'20sp'
             halign:'right'
             background_color: 1, 1, 1, 1
@@ -103,4 +109,7 @@
             border: 0, 0, 0, 0
             background_down: 'img/balao_azul.png'
             id: sem
+    Label:
+        size_hint_y:1
+        size_hint_x:.02
         
