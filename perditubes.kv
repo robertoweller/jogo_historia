@@ -5,7 +5,8 @@
         BoxLayout:
             orientation:'vertical'
             id: men
-            size_hint_y:None
+            size_hint:(1, .9)
+            # size_hint_y:None
             height:self.minimum_height
     BoxLayout:
         size_hint_y:None
@@ -46,12 +47,16 @@
         size_hint_y:.0001
         size_hint_x:.0001
     Button:
+        text_size:(400, 0)
+        font_size:'20sp'
+        halign:'justify'
         background_color: 1, 1, 1, 1
         background_normal: 'img/balao_rosa.png'
         border: 0, 0, 0, 0
         background_down: 'img/balao_rosa.png'
         id: lab
-        font_size: 35/2
+        # Esse  foi um teste de tamanho
+        # font_size: 35/2
         size_hint_y:.9/2
         disabled: False
 

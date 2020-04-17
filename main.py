@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 import os
+
 '''
        Leia mais sobre o jogo no arquivo README.md
 '''
@@ -97,7 +98,7 @@ class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@cay oi hihi', '@euu olá :)'])
+        return Mensagem(['@cay oi hihi', '@cay eu queria falar algo'])
 
 
 if __name__ == '__main__':
