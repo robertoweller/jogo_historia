@@ -19,7 +19,7 @@ class TestTexto(BoxLayout):
             self.ids.bot1.text_size[0] = 20*3-30
             self.ids.box1.width = f'{20*3}px'
         else:
-            self.ids.bot11.text_size[0] = 20*len(self.ids.bot1.text)-30
+            self.ids.bot1.text_size[0] = 20*len(self.ids.bot1.text)-30
             self.ids.box1.width = f'{20*len(self.ids.bot1.text)}px'
         # E assim vai... só falt por no código original. A lógica é que cada widget adcionado tenha seu tamanho automatico de acordo com a quantidade de caracters
 
