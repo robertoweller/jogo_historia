@@ -3,15 +3,14 @@
     height:150
 
     BoxLayout:
-        orientation:'vertical'
-        size_hint:(.5, .2)
+        size_hint:(None, None)
         # orientation:'vertical'
         # Height não tem efeito por conta do .1 do size_hint(None, .1)
-        height:100
+        # height:800
         id:box
         width:'45px'
-        # Colocar a imagem dos peersonagem para testar aqui
         Button:
+            orientation:'vertical'
             # balao_rosa.png
             background_normal: 'balao_rosa.png'
             background_down:'balao_rosa.png'
@@ -21,13 +20,21 @@
             text_size:(None, None)
             halign:'left'
             font_size:'35px'
+    BoxLayout:
+        size_hint:(None, None)
+        # orientation:'vertical'
+        # Height não tem efeito por conta do .1 do size_hint(None, .1)
+        # height:800
+        id:box1
+        width:'45px'
         Button:
+            orientation:'vertical'
             # balao_rosa.png
             background_normal: 'balao_rosa.png'
             background_down:'balao_rosa.png'
-            id:bot
+            id:bot1
             underline: True
-            text:'Olá, tudo bom?'
+            text:'!!!'
             text_size:(None, None)
             halign:'left'
             font_size:'35px'
