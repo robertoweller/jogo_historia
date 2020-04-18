@@ -1,18 +1,16 @@
 <TestTexto>:
     orientation:'vertical'
     height:150
-    Button:
-        text_size:(600, None)
-        font_size:'34sp'
-        halign:'right'
-        text:'Olá, tudo bom? Eu quero testa se esse texto passa da tela básicamente é só isso:)'
+
     BoxLayout:
-        size_hint:(None, .2)
+        orientation:'vertical'
+        size_hint:(.5, .2)
         # orientation:'vertical'
         # Height não tem efeito por conta do .1 do size_hint(None, .1)
-        # height:800
+        height:100
         id:box
         width:'45px'
+        # Colocar a imagem dos peersonagem para testar aqui
         Button:
             # balao_rosa.png
             background_normal: 'balao_rosa.png'
@@ -23,8 +21,13 @@
             text_size:(None, None)
             halign:'left'
             font_size:'35px'
-    Button:
-        text_size:(600, None)
-        font_size:'34sp'
-        halign:'right'
-        text:'Olá, tudo bom? Eu quero testa se esse texto passa da tela básicamentesó é isso:)'
+        Button:
+            # balao_rosa.png
+            background_normal: 'balao_rosa.png'
+            background_down:'balao_rosa.png'
+            id:bot
+            underline: True
+            text:'Olá, tudo bom?'
+            text_size:(None, None)
+            halign:'left'
+            font_size:'35px'
