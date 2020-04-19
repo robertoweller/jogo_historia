@@ -8,11 +8,14 @@ class TestTexto(BoxLayout):
         # Se tiver menos que 3 caracters vai ter um tamanho unico
         if len(self.ids.bot.text) <= 3:
             # Botão do meio se adapta à quantidades de letras (só na largura do botão)
-            self.ids.bot.text_size[0] = 20*3.5-30
-            self.ids.box.width = f'{20*3.5}px'
+            self.ids.bot.text_size[0] = 20*3.5
+            self.ids.box.width = f'{20*3}px'
+            self.ids.bot.size_hint[0] = None
         else:
-            self.ids.bot.text_size[0] = 20*len(self.ids.bot.text)-30
+            self.ids.bot.text_size[0] = 20*len(self.ids.bot.text)-110
+            self.ids.bot.size_hint[0] = 1
             self.ids.box.width = f'{20*len(self.ids.bot.text)}px'
+
 
         # Como se outro widget tivesse sido adicionado
         if len(self.ids.bot1.text) <= 3:
