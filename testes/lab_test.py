@@ -1,6 +1,5 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.checkbox import CheckBox
 from kivy.uix.button import Button
 from kivy.metrics import sp
 
@@ -16,15 +15,21 @@ class Definir(BoxLayout):
     def __init__(self, texto='',**kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
+        self.add_widget(
+            Button(
+                size_hint = (None, None),
+                width=100,
+                border=(0, 0, 0, 0),
+                background_normal = 'cayla_rosa.png',
+                background_down = 'cayla_rosa.png'
+            ))
         self.add_widget(Adaptavel(texto))
-        self.add_widget(CheckBox())
-
 
 
 class Adaptavel(Button):
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
-        self.size_hint = (1, None)
+        self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
         self.background_normal = 'balao_rosa.png'
@@ -36,6 +41,9 @@ class Adaptavel(Button):
     def on_texture_size(self, *args):
         self.size = self.texture_size
         self.height += sp(20)
+        self.width += sp(30)
+        if self.width > 550:
+            self.size_hint = (1, None)
 
 
 
@@ -44,9 +52,9 @@ class Test(App):
         return Mensagem([
             'Coisas para fazer hoje :)',
             'Comprar pão',
-            'Compra pessa',
-            'Ir buscar uma mascara personalizada',
-            'Terminar programa'
+            'Compra mascara',
+            ':)',
+            'sedjfjfgofoajfoasofaosjfsoajfosajfjsafjasofjaosjfoasjf'
         ])
 
 Test().run()
