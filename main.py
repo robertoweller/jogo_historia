@@ -1,7 +1,10 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
 from kivy.clock import Clock
+from kivy.metrics import sp
 import os
+
 
 '''
        Leia mais sobre o jogo no arquivo README.md
@@ -36,7 +39,7 @@ class Mensagem(BoxLayout):
             falas = {
                 '@cay': CaylaFala(text=self.mensagem[self.conta][4:]),
                 '@euu': EuFala(text=self.mensagem[self.conta][4:]),
-                '@sem': Sem(text=self.mensagem[self.conta][4:])
+                '@sem': Adapita(text=self.mensagem[self.conta][4:])
             }
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
@@ -51,7 +54,7 @@ class Mensagem(BoxLayout):
         falas = {
             '@cay': CaylaFala(text=mifala[4:]),
             '@euu': EuFala(text=mifala[4:]),
-            '@sem': Sem(text=mifala[4:])
+            '@sem': Adapita(text=mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         self.ids.men.add_widget(falas[mifala[:4]])
@@ -101,12 +104,26 @@ class Sem(BoxLayout):
         super().__init__(**kwargs)
         self.ids.sem.text = text
 
+# Label adapitavel
+class Adapita(Label):
+    def __init__(self, text= '', **kwargs):
+        super().__init__(**kwargs)
+        self.size_hint = (1, None)
+        self.font_size = sp(30)
+        self.text = text
+
+    def on_size(self, *args):
+        self.text_size = (self.width - sp(10), None)
+
+    def on_texture_size(self, *args):
+        self.size = self.texture_size
+        self.height += sp(20)
 
 class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@cay ...', '@cay Eu queria falar algo'])
+        return Mensagem(['@sem ...', '@sem Eu queria falar algo'])
 
 
 if __name__ == '__main__':
