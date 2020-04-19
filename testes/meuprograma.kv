@@ -1,8 +1,7 @@
-#:kivy
+#:kivy 1.11.1
 <TestTexto>:
     orientation:'vertical'
     height:150
-    
     BoxLayout:
         size_hint:(None, None)
         # orientation:'vertical'
@@ -10,7 +9,13 @@
         # height:800
         id:box
         width:'45px'
-        
+        Button:
+            orientation:'vertical'
+            border: 0, 0, 0, 0
+            background_normal: 'cayla_rosa.png'
+            size_hint_y:1
+            size_hint_x:None
+            font_size: 30
         Button:
             orientation:'vertical'
             # balao_rosa.png
