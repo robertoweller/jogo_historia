@@ -44,7 +44,8 @@ class Adaptavel(Button):
         self.width += sp(30)
         if self.width > 550:
             self.size_hint = (1, None)
-
+            # self.ids.imagem.background_normal = None
+            # self.ids.imagem.background_down = None
 
 
 class Test(App):
@@ -54,7 +55,7 @@ class Test(App):
             'Comprar pão',
             'Compra mascara',
             ':)',
-            'sedjfjfgofoajfoasofaosjfsoajfosajfjsafjasofjaosjfoasjf'
+            'sedjfjfgofoajfoasofaosjfsoajfosajfjsafjasofjaosjfoasjfhfhaahoiashdoidoiashdoihsadoisahdois'
         ])
 
 Test().run()
