@@ -100,6 +100,8 @@ class Definir(BoxLayout):
                 background_down = 'img/personagens/cayla_rosa.png'
             ))
         self.add_widget(Adaptavel(texto))
+        # Aqui vai ser preciso ser adicionado algo que identifique quantas letras
+        # foi escrito e adicione o widget que melhor atende a situação
 
 
 class Adaptavel(Button):
@@ -143,12 +145,6 @@ class Sem(BoxLayout):
         self.ids.sem.text = text
 
 
-class Simples(BoxLayout):
-    def __init__(self, text='', **kwargs):
-        super().__init__(**kwargs)
-        self.ids.sem.text = text
-
-
 # Label adapitavel
 class Adapita(Label):
     def __init__(self, text= '', **kwargs):
@@ -168,7 +164,7 @@ class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@sem ...', '@sem Eu quero falar algo',
+        return Mensagem(['@sem ...', '@sem asassdsdsdadsadsadsdsadasdsadsad',
         '@euu Diga, por favor'])
 
 
