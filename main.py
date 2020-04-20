@@ -1,6 +1,8 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
 from kivy.uix.label import Label
+from kivy.uix.scrollview import ScrollView
 from kivy.clock import Clock
 from kivy.metrics import sp
 import os
@@ -10,7 +12,7 @@ import os
        Leia mais sobre o jogo no arquivo README.md
 '''
 
-
+# deixei como prevenção essa classe, caso eu erre
 class Mensagem(BoxLayout):
     def __init__(self, mensagem, **kwargs):
         super().__init__(**kwargs)
@@ -39,7 +41,7 @@ class Mensagem(BoxLayout):
             falas = {
                 '@cay': CaylaFala(text=self.mensagem[self.conta][4:]),
                 '@euu': EuFala(text=self.mensagem[self.conta][4:]),
-                '@sem': Adapita(text=self.mensagem[self.conta][4:])
+                '@sem': Definir(self.mensagem[self.conta][4:])
             }
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
@@ -54,7 +56,7 @@ class Mensagem(BoxLayout):
         falas = {
             '@cay': CaylaFala(text=mifala[4:]),
             '@euu': EuFala(text=mifala[4:]),
-            '@sem': Adapita(text=mifala[4:])
+            '@sem': Definir(mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         self.ids.men.add_widget(falas[mifala[:4]])
@@ -84,6 +86,42 @@ class Mensagem(BoxLayout):
                 # print(self.conversadas)
 
 
+# O balão adaptavel, de acordo com a quantidade de texto em teste
+class Definir(BoxLayout):
+    def __init__(self, texto='',**kwargs):
+        super().__init__(**kwargs)
+        self.orientation = 'horizontal'
+        self.add_widget(
+            Button(
+                size_hint = (None, None),
+                width=100,
+                border=(0, 0, 0, 0),
+                background_normal = 'img/personagens/cayla_rosa.png',
+                background_down = 'img/personagens/cayla_rosa.png'
+            ))
+        self.add_widget(Adaptavel(texto))
+
+
+class Adaptavel(Button):
+    def __init__(self, texto, **kwargs):
+        super().__init__(**kwargs)
+        self.size_hint = (None, None)
+        self.font_size = sp(30)
+        self.text = texto
+        self.background_normal = 'img/balao_rosa.png'
+        self.background_down = 'img/balao_rosa.png'
+
+    def on_size(self, *args):
+        self.text_size = (self.width - sp(30), None)
+
+    def on_texture_size(self, *args):
+        self.size = self.texture_size
+        self.height += sp(20)
+        self.width += sp(30)
+        if self.width > 550:
+            self.size_hint = (1, None)
+
+
 class CaylaFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
@@ -104,6 +142,13 @@ class Sem(BoxLayout):
         super().__init__(**kwargs)
         self.ids.sem.text = text
 
+
+class Simples(BoxLayout):
+    def __init__(self, text='', **kwargs):
+        super().__init__(**kwargs)
+        self.ids.sem.text = text
+
+
 # Label adapitavel
 class Adapita(Label):
     def __init__(self, text= '', **kwargs):
@@ -123,7 +168,8 @@ class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@sem ...', '@sem Eu queria falar algo'])
+        return Mensagem(['@sem ...', '@sem Eu quero falar algo',
+        '@euu Diga, por favor'])
 
 
 if __name__ == '__main__':
