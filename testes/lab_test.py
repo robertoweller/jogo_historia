@@ -19,18 +19,28 @@ class Definir(BoxLayout):
         self.orientation = 'horizontal'
         self.padding=(0, 0, 0, 10)
         self.spacing = 10
-        self.add_widget(
-            Button(
-                size_hint = (None, None),
-                width=100,
-                border=(0, 0, 0, 0),
-                background_normal = 'cayla_rosa.png',
-                background_down = 'cayla_rosa.png'
-            ))
+        
+        self.add_widget(Button(
+            size_hint = (None, None),
+            width = 100,
+            border = (0, 0, 0, 0),
+            background_normal = 'cayla_rosa.png',
+            background_down = 'cayla_rosa.png'
+        ))
         self.add_widget(Adaptavel(texto))
 
+# Testando reaproveitamento de widget
+class Cayla(Button):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.size_hint = (None, None)
+        self.width = 100
+        self.border = (0, 0, 0, 0)
+        self.background_normal = 'cayla_rosa.png'
+        self.background_down = 'cayla_rosa.png'
 
-class Adaptavel(Button):
+
+class Adaptavel(BoxLayout, Button):
     largura = NumericProperty(400)
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
@@ -40,8 +50,8 @@ class Adaptavel(Button):
         self.background_normal = 'balao_rosa.png'
         self.background_down = 'balao_rosa.png'
     # Teste para entender os eventos
-    def on_largura(self, *args):
-        print('Mudou')
+    def on_width(self, *args):
+        print('sla')
     def on_size(self, *args):
         self.text_size = (self.width - sp(30), None)
 
@@ -62,7 +72,8 @@ class Test(App):
             'Coisas para fazer hoje :))))))',
             'Comprar pão',
             ':)',
-            'sedjfjfgofoajf'
+            'sedjfjfgofoajrfanfanafpojafafjoasfopfojajfpoafopajfopafjasopff',
+            ':))'
         ])
 
 Test().run()

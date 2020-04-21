@@ -31,39 +31,7 @@
             width:60
             on_release: root.conversa_digitada()
 
-
 # Me lembrar de fazer de uma forma que não precise ficar adicionando novas classes
-<CaylaFala>:
-    size_hint_y:None
-    height:150/2
-
-    Button:
-        border: 0, 0, 0, 0
-        background_normal: 'img/personagens/cayla_rosa.png'
-        size_hint_y:.9
-        size_hint_x:.25/2
-        font_size: 30
-    Label:
-        # Distancia do personagem e o balão
-        size_hint_y:.0001
-        size_hint_x:.0001
-    Button:
-        text_size:(400, None)
-        font_size:'20sp'
-        halign:'justify'
-        background_color: 1, 1, 1, 1
-        background_normal: 'img/balao_rosa.png'
-        border: 0, 0, 0, 0
-        background_down: 'img/balao_rosa.png'
-        id: lab
-        # Esse  foi um teste de tamanho
-        # font_size: 35/2
-        size_hint_y:.9/2
-        disabled: False
-
-    Label:
-        size_hint_y:.2
-        size_hint_x:.2
 
 <EuFala>:
     height:75
@@ -89,31 +57,6 @@
         size_hint_x:.02
         font_size: 30
 
-<Definir>:
+<CaylaFala>:
     size_hint_y:None
-    height:100
-
-<Sem>:
-    size_hint_y:None
-    height:75
-    Label:
-        size_hint_y:.02
-        size_hint_x:.02
-    BoxLayout:
-        size_hint:(None, .5)
-        # orientation:'vertical'
-        # Height não tem efeito por conta do .1 do size_hint(None, .1)
-        # height:800
-        width:550
-        Button:
-            text_size:(500, None)
-            font_size:'20sp'
-            halign:'right'
-            background_color: 1, 1, 1, 1
-            background_normal: 'img/balao_azul.png'
-            border: 0, 0, 0, 0
-            background_down: 'img/balao_azul.png'
-            id: sem
-    Label:
-        size_hint_y:1
-        size_hint_x:.02
+    height:self.minimum_height

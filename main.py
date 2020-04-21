@@ -39,9 +39,8 @@ class Mensagem(BoxLayout):
         if self.conta < self.todas_mensagnes:
             # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
-                '@cay': CaylaFala(text=self.mensagem[self.conta][4:]),
-                '@euu': EuFala(text=self.mensagem[self.conta][4:]),
-                '@sem': Definir(self.mensagem[self.conta][4:])
+                '@cay': CaylaFala(self.mensagem[self.conta][4:]),
+                '@euu': EuFala(text=self.mensagem[self.conta][4:])
             }
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
@@ -54,9 +53,8 @@ class Mensagem(BoxLayout):
     def conversa_digitada(self):
         mifala = self.ids.mifala.text
         falas = {
-            '@cay': CaylaFala(text=mifala[4:]),
-            '@euu': EuFala(text=mifala[4:]),
-            '@sem': Definir(mifala[4:])
+            '@cay': CaylaFala(mifala[4:]),
+            '@euu': EuFala(text=mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         self.ids.men.add_widget(falas[mifala[:4]])
@@ -87,10 +85,12 @@ class Mensagem(BoxLayout):
 
 
 # O balão adaptavel, de acordo com a quantidade de texto em teste
-class Definir(BoxLayout):
+class CaylaFala(BoxLayout):
     def __init__(self, texto='',**kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
+        self.padding=(0, 0, 0, 10)
+        self.spacing = 10
         self.add_widget(
             Button(
                 size_hint = (None, None),
@@ -120,16 +120,8 @@ class Adaptavel(Button):
         self.size = self.texture_size
         self.height += sp(20)
         self.width += sp(30)
-        if self.width > 550:
-            self.size_hint = (1, None)
-
-
-class CaylaFala(BoxLayout):
-    def __init__(self, text='', **kwargs):
-        super().__init__(**kwargs)
-        # e o conteudo espera text como arguemento que é passado na classe mensagem
-        # se não for passado nada, terá texto vazio ''
-        self.ids.lab.text = text
+        if self.width > 400:
+            self.width = 400
 
 
 # Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e outras imagens
@@ -137,12 +129,6 @@ class EuFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
         self.ids.meu.text = text
-
-
-class Sem(BoxLayout):
-    def __init__(self, text='', **kwargs):
-        super().__init__(**kwargs)
-        self.ids.sem.text = text
 
 
 # Label adapitavel
@@ -164,8 +150,12 @@ class PerdiTubes(App):
     def build(self):
         # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
         # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
-        return Mensagem(['@sem ...', '@sem asassdsdsdadsadsadsdsadasdsadsad',
-        '@euu Diga, por favor'])
+        return Mensagem(['@cay ...', 
+        '@cay Coisas que precisa ser feito',
+        '@cay Comprar mascara',
+        '@cay :)',
+        '@cay isdhghgwghqhgawfajrfjwafjapojsfopajfosajfopssadjasd',
+        '@euu Sim vc não é o que paracer, uma pessoa genio'])
 
 
 if __name__ == '__main__':
