@@ -17,6 +17,7 @@ class Definir(BoxLayout):
     def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
+        self.padding=(0, 0, 0, 10)
         self.spacing = 10
         self.add_widget(
             Button(
@@ -45,7 +46,6 @@ class Adaptavel(Button):
         self.text_size = (self.width - sp(30), None)
 
     def on_texture_size(self, *args):
-        print('Mudou')
         self.size = self.texture_size
         self.height += sp(20)
         self.width += sp(30)
@@ -61,7 +61,6 @@ class Test(App):
         return Mensagem([
             'Coisas para fazer hoje :))))))',
             'Comprar pão',
-            'Compra mascara',
             ':)',
             'sedjfjfgofoajf'
         ])
