@@ -1,2 +1,2 @@
-['@cay oi hihi', '@cay eu queria falar algo']
-['@euu diga', '@euu fala logo']
+['@cay ...', '@cay Coisas que precisa ser feito', '@cay Comprar mascara', '@cay :)', '@cay isdhghgwghqhgawfajrfjwafjapojsfopajfosajfopssadjasd', '@euu Sim vc as vezes vc da uma pirada']
+['@euu sla']
