@@ -32,7 +32,7 @@ do tamanho do texto, mas acho que vou deixar com um tempo genérico
    - O jogo é de modo historia, os balões vão aparecer, simulando conversas que o protagonista faz, tipo whatsapp
    - E o jogador escolhe opções que aparece, a idéia é cada um ter um jogo únicio e ir fazendo sua história
    - Cada um terá um final diferente, dentro que das opções do jogo oferece claro, mas vamos trapalhar duro para ter várisos finais.
-
+---
 ## Licença
 
 **[Creative Commons Zero v1.0 Universal](LICENÇA)**
@@ -61,7 +61,7 @@ Perfil: https://opengameart.org/users/diamonddmgirl
 
 https://opengameart.org/content/24x32-peppercarrot-characters
 
-
+---
 ## License
 
 **[Creative Commons Zero v1.0 Universal](LICENSE)**
