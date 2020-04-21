@@ -44,13 +44,13 @@ As imagens [usadas](https://github.com/robertoweller/jogo_historia/tree/master/i
 * https://opengameart.org/content/mini-icons
 * http://www.famfamfam.com/about/
 
-mini ícones - famfamfam.com
+mini ícones - [famfamfam.com](http://famfamfam.com)
 
 Contato: mjames@gmail.com
 
 ## Base2.png
 
-Stephen Challener Art (Redshrike), hospedado por OpenGameArt.org
+Stephen Challener Art (Redshrike), hospedado por [OpenGameArt.org](https://opengameart.org)
 
 
 ## shichimi publish.png
@@ -73,13 +73,13 @@ The [used](https://github.com/robertoweller/jogo_historia/tree/master/img) image
 * https://opengameart.org/content/mini-icons
 * http://www.famfamfam.com/about/
 
-mini icons - famfamfam.com
+mini icons - [famfamfam.com](http://famfamfam.com/)
 
 Contact: mjames@gmail.com
 
 ## Base2.png
 
-Stephen Challener Art (Redshrike), hosted by OpenGameArt.org
+Stephen Challener Art (Redshrike), hosted by [OpenGameArt.org](https://opengameart.org)
 
 
 ## shichimi publish.png
