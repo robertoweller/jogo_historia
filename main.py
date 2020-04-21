@@ -19,6 +19,7 @@ class Mensagem(BoxLayout):
         # A classe incial estará esperando a classe mensagem como argumento
         # Essa é aquela mensagem da lista da classe PerdiTubes
         self.mensagem = mensagem
+        self.orientation = 'vertical'
         self.todas_mensagnes = len(mensagem)
         self.conta = 0
         self.fala = []
@@ -44,7 +45,7 @@ class Mensagem(BoxLayout):
             }
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
-            self.ids.men.add_widget(falas[self.mensagem[self.conta][:4]])
+            self.ids.box.add_widget(falas[self.mensagem[self.conta][:4]])
 
             # Mostra a pessoa, se decomentar o [:4] mostra a conversa toda junto com a pessoa
             # print(self.mensagem[self.conta][:4])
@@ -57,7 +58,7 @@ class Mensagem(BoxLayout):
             '@euu': EuFala(text=mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
-        self.ids.men.add_widget(falas[mifala[:4]])
+        self.ids.box.add_widget(falas[mifala[:4]])
 
         # Escrever no terminal a conversa que stá acontecendo
         print(mifala)

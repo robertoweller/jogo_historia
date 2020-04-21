@@ -1,14 +1,13 @@
 #:kivy 1.11.1
 <Mensagem>:
-    orientation:'vertical'
-    ScrollView:
-        id: posi
-        BoxLayout:
-            orientation:'vertical'
-            id: men
-            size_hint:(1, .9)
-            # size_hint_y:None
-            height:self.minimum_height
+    BoxLayout:
+        orientation:'vertical'
+        ScrollView:
+            BoxLayout:
+                id:box
+                orientation:'vertical'
+                size_hint_y:None
+                height:self.minimum_height
     BoxLayout:
         size_hint_y:None
         size_hint_x:None

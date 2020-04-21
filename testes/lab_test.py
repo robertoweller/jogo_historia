@@ -10,10 +10,10 @@ class Mensagem(BoxLayout):
         super().__init__(**kwargs)
         
         for tarefa in tarefas:
-            self.ids.box.add_widget(Definir(tarefa))
+            self.ids.box.add_widget(CaylaFala(tarefa))
 
 
-class Definir(BoxLayout):
+class CaylaFala(BoxLayout):
     def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
