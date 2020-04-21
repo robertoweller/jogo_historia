@@ -3,7 +3,7 @@
  - [ ] Imagens de fundo (tenho alguns exemplos)
 - [X] Saber como dar o tempo de adicionar cada Label
 - [X] Definir qual paleta de cores será usadas (Por enquanto é o que está definido)
-- [ ] Por imagem do personagem, representando a pessoa que fala
+- [X] Por imagem do personagem, representando a pessoa que fala
 
 -------------------------------------
 # Idéia inicial 
@@ -32,4 +32,61 @@ do tamanho do texto, mas acho que vou deixar com um tempo genérico
    - O jogo é de modo historia, os balões vão aparecer, simulando conversas que o protagonista faz, tipo whatsapp
    - E o jogador escolhe opções que aparece, a idéia é cada um ter um jogo únicio e ir fazendo sua história
    - Cada um terá um final diferente, dentro que das opções do jogo oferece claro, mas vamos trapalhar duro para ter várisos finais.
+
+## Licença
+
+**[Creative Commons Zero v1.0 Universal](LICENÇA)**
+
+A concessão da licença Universal Creative Commons Zero v1.0 Universal não é para imagens deste [jogo](https://github.com/robertoweller/jogo_historia/tree/master/img), incluindo design de personagens. As imagens são reservadas como marcas registradas e direitos autorais de seus autores e de suas fontes.
+As imagens [usadas](https://github.com/robertoweller/jogo_historia/tree/master/img) pertencem a essas pessoas e todos os direitos reservados a elas, portanto, esta licença não tem efeito sobre elas.
+
+## Imagens tiradas daqui
+* https://opengameart.org/content/mini-icons
+* http://www.famfamfam.com/about/
+
+mini ícones - famfamfam.com
+
+Contato: mjames@gmail.com
+
+## Base2.png
+
+Stephen Challener Art (Redshrike), hospedado por OpenGameArt.org
+
+
+## shichimi publish.png
+
+Autor: diamonddmgirl
+
+Perfil: https://opengameart.org/users/diamonddmgirl
+
+https://opengameart.org/content/24x32-peppercarrot-characters
+
+
+## License
+
+**[Creative Commons Zero v1.0 Universal](LICENSE)**
+
+The Universal Creative Commons Zero v1.0 Universal license grant is not for images of this [game](https://github.com/robertoweller/jogo_historia/tree/master/img), including character design. The images are reserved as trademarks and copyrights of their authors and their sources.
+The [used](https://github.com/robertoweller/jogo_historia/tree/master/img) images belong to these people and all rights reserved to them, therefore, this license has no effect on them.
+
+## Images taken from here
+* https://opengameart.org/content/mini-icons
+* http://www.famfamfam.com/about/
+
+mini icons - famfamfam.com
+
+Contact: mjames@gmail.com
+
+## Base2.png
+
+Stephen Challener Art (Redshrike), hosted by OpenGameArt.org
+
+
+## shichimi publish.png
+
+Author: diamonddmgirl
+
+Profile: https://opengameart.org/users/diamonddmgirl
+
+https://opengameart.org/content/24x32-peppercarrot-characters
 
