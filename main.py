@@ -85,7 +85,7 @@ class Mensagem(BoxLayout):
                 # print(self.conversadas)
 
 
-# O balão adaptavel, de acordo com a quantidade de texto em teste
+# O balão adaptavel, de acordo com a quantidade de texto
 class CaylaFala(BoxLayout):
     def __init__(self, texto='',**kwargs):
         super().__init__(**kwargs)
@@ -125,7 +125,7 @@ class Adaptavel(Button):
             self.width = 400
 
 
-# Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e outras imagens
+# Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e outras imagens e uma adaptação gambiarra
 class EuFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
