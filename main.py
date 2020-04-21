@@ -90,7 +90,7 @@ class CaylaFala(BoxLayout):
     def __init__(self, texto='',**kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
-        self.padding=(0, 0, 0, 10)
+        self.padding=(10, 10, 0, 0)
         self.spacing = 10
         self.add_widget(
             Button(
@@ -156,7 +156,7 @@ class PerdiTubes(App):
         '@cay Comprar mascara',
         '@cay :)',
         '@cay isdhghgwghqhgawfajrfjwafjapojsfopajfosajfopssadjasd',
-        '@euu Sim vc não é o que paracer, uma pessoa genio'])
+        '@euu Sim vc as vezes vc da uma pirada'])
 
 
 if __name__ == '__main__':
