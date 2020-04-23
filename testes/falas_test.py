@@ -1,6 +1,6 @@
+# Arquivo test.kv é daqui
 from kivy.app import App
 from kivy.metrics import sp
-from kivy.properties import NumericProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 
@@ -9,18 +9,23 @@ class Mensagem(BoxLayout):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         self.con = 0
+        # Se for True, não vai adicionar a imagem na quarta vez
+        # Se for False, vai adicionar balão  imagem normalmente
+        self.img = True
         for tarefa in tarefas:
             self.con += 1
             # Quando a contagem chega à 4, só adiciona o balão
-            if self.con < 4:
-                # Quando a contagem é menor de 4
-                # Adiciona o balão e a imagem da Cayla jutos
-                self.ids.box.add_widget(CaylaFala(tarefa))
+            if self.img:
+                if self.con < 4:
+                    # Quando a contagem é menor de 4
+                    # Adiciona o balão e a imagem da Cayla jutos
+                    self.ids.box.add_widget(CaylaFala(tarefa))
+                else:
+                    # Quando chega à 4 adiciona apenas o balão, e volta a contar
+                    self.ids.box.add_widget(Adaptavel(tarefa))
+                    self.con = 0
             else:
-                # Quando chega à 4 adiciona apenas o balão, e volta a contar
-                self.ids.box.add_widget(Adaptavel(tarefa))
-                self.con = 0
-
+                self.ids.box.add_widget(CaylaFala(tarefa))
 
 # Classe Cayla [Cayla + adiciona(balão)]
 class CaylaFala(BoxLayout):
@@ -42,7 +47,7 @@ class Cayla(Button):
 
 # classe do balão
 class Adaptavel(Button):
-    largura = NumericProperty(400)
+    largura = 400
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
         self.larg = 0
