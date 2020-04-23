@@ -8,16 +8,21 @@
                 size_hint_y:None
                 height:self.minimum_height
 
+# É uma classe BoxLayout
 <CaylaFala>:
     size_hint_y:None
     height:self.minimum_height
     orientation: 'horizontal'
-    padding: 10, 0, 0, 10
+    padding: 0, 0, 0, 0
     spacing:10
 
-    # Adiciona a Cayla <-
-    Button:
+    BoxLayout:
         size_hint: None, None
-        border: 0, 0, 0, 0
-        background_normal:'cayla_rosa.png'
-        background_down: 'cayla_rosa.png'
+        height:self.minimum_height
+        orientation:'horizontal'
+        padding: 0, 0, 0, 0
+        Button:
+            size_hint: None, None
+            border: 0, 0, 0, 0
+            background_normal:'cayla_rosa.png'
+            background_down: 'cayla_rosa.png'

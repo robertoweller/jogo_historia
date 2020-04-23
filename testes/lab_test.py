@@ -8,9 +8,14 @@ from kivy.uix.button import Button
 class Mensagem(BoxLayout):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
-        
+        self.con = 0
         for tarefa in tarefas:
-            self.ids.box.add_widget(CaylaFala(tarefa))
+            self.con += 1
+            if self.con < 4:
+                self.ids.box.add_widget(CaylaFala(tarefa))
+            else:
+                self.ids.box.add_widget(Adaptavel(tarefa))
+                self.con = 0
 
 
 # Classe Cayla [Cayla + adiciona(balão)]
@@ -33,7 +38,7 @@ class Cayla(Button):
 
 
 # classe do balão
-class Adaptavel(BoxLayout, Button):
+class Adaptavel(Button):
     largura = NumericProperty(400)
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
