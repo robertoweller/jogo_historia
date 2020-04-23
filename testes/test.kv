@@ -2,6 +2,7 @@
     BoxLayout:
         orientation:'vertical'
         ScrollView:
+            # Talvez este aqui o problema da imagem fica embaixo (da Cayla)
             BoxLayout:
                 id:box
                 orientation:'vertical'
@@ -15,14 +16,10 @@
     orientation: 'horizontal'
     padding: 0, 0, 0, 0
     spacing:10
-
-    BoxLayout:
+    # Adiciona Cayla desse lado <-
+    Button:
+        anchor_y: 'top'
         size_hint: None, None
-        height:self.minimum_height
-        orientation:'horizontal'
-        padding: 0, 0, 0, 0
-        Button:
-            size_hint: None, None
-            border: 0, 0, 0, 0
-            background_normal:'cayla_rosa.png'
-            background_down: 'cayla_rosa.png'
+        border: 0, 0, 0, 0
+        background_normal:'cayla_rosa.png'
+        background_down: 'cayla_rosa.png'

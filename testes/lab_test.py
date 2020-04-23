@@ -11,9 +11,13 @@ class Mensagem(BoxLayout):
         self.con = 0
         for tarefa in tarefas:
             self.con += 1
+            # Quando a contagem chega à 4, só adiciona o balão
             if self.con < 4:
+                # Quando a contagem é menor de 4
+                # Adiciona o balão e a imagem da Cayla jutos
                 self.ids.box.add_widget(CaylaFala(tarefa))
             else:
+                # Quando chega à 4 adiciona apenas o balão, e volta a contar
                 self.ids.box.add_widget(Adaptavel(tarefa))
                 self.con = 0
 
@@ -22,8 +26,7 @@ class Mensagem(BoxLayout):
 class CaylaFala(BoxLayout):
     def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
-
-        # Adiciona o balão do lado ->
+        # Adiciona o balão do desse lado ->
         self.add_widget(Adaptavel(texto))
 
 
