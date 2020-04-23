@@ -6,20 +6,22 @@
             BoxLayout:
                 id:box
                 orientation:'vertical'
-                size_hint_y:None
-                height:self.minimum_height
+                size_hint: None, None
+                height:self.minimum_height+10
 
 # É uma classe BoxLayout
 <CaylaFala>:
+    id:mini
     size_hint:None, None
     height:self.minimum_height
     orientation: 'horizontal'
-    padding: 0, 0, 0, 0
+    padding: 0, 15, 0, 10
     spacing:10
     # Adiciona Cayla desse lado <-
     Button:
-        anchor_y: 'top'
+        id: cay
         size_hint: None, None
+        pos_hint: {'top': 1.1}
         border: 0, 0, 0, 0
         background_normal:'cayla_rosa.png'
         background_down: 'cayla_rosa.png'

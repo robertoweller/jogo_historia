@@ -11,7 +11,7 @@ class Mensagem(BoxLayout):
         self.con = 0
         # Se for True, não vai adicionar a imagem na quarta vez
         # Se for False, vai adicionar balão  imagem normalmente
-        self.img = True
+        self.img = False
         for tarefa in tarefas:
             self.con += 1
             # Quando a contagem chega à 4, só adiciona o balão
@@ -50,17 +50,14 @@ class Adaptavel(Button):
     largura = 400
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
+        self.altura_balao = CaylaFala.height
         self.larg = 0
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
+        self.pos_hint = {'bottom': 1}
         self.background_normal = 'balao_rosa.png'
         self.background_down = 'balao_rosa.png'
-
-    # Cada vez que a largura for mudada esse evento é chamado
-    def on_width(self, *args):
-        self.larg += 1
-        print(f'{self.larg} linhas')
 
     def on_size(self, *args):
         self.text_size = (self.width - sp(30), None)
@@ -71,7 +68,7 @@ class Adaptavel(Button):
         self.width += sp(30)
         if self.width > self.largura:
             self.width = self.largura
-
+            # CaylaFala.height = 100
 
 class Test(App):
     def build(self):
@@ -79,8 +76,11 @@ class Test(App):
             'Coisas para fazer hoje :))))))',
             'Comprar pão',
             ':)',
-            'sedjfjfgofoajrfanfanafpojafafjoasfopfojajfpoafopajfopafjasopff',
-            ':))'
+            'Bolacha',
+            'sedjfjfgofoajrfanfanafpojafafjoasfopfojajfpoafopajfopafjasopffasflslflf'
+            'sflsfkafosfksoafkosakfoksfokofkoaskfosakfoskfosakfopksafopksaofpksaofka',
+            'Agora falando sério',
+            'Quero compra sla, algo que não me lembro'
         ])
 
 Test().run()
