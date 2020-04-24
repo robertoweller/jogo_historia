@@ -14,7 +14,7 @@ def setup():
 
     # Se for 0, não será possivel redimensionar e se for 1 será
     Config.set('graphics', 'resizable', '1')
-    # Descomente essa linha para deixa tela chia
+    # Descomente essa linha para deixa tela cheia
     # Config.set('graphics', 'fullscreen', 'auto')
     Config.write()
 
@@ -82,7 +82,9 @@ class CaylaFala(BoxLayout):
             )
         )
         # Adiciona o balão do desse lado ->
+        print(Adaptavel(texto).on_texture_size())
         self.add_widget(Adaptavel(texto))
+        
 
 
 # Balão da Cayla
@@ -90,14 +92,14 @@ class Adaptavel(Button):
     largura = 400
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
-        self.larg = 0
+        self.alturaaa=0
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
         self.pos_hint = {'bottom': 1}
         self.background_normal = 'baloes/balao_rosa.png'
         self.background_down = 'baloes/balao_rosa.png'
-
+        
     def on_size(self, *args):
         self.text_size = (self.width - sp(30), None)
 
@@ -108,7 +110,10 @@ class Adaptavel(Button):
         if self.width > self.largura:
             self.width = self.largura
             # CaylaFala.height = 100
-
+            self.alturaaa = self.height
+        #print(self.alturaaa)
+        return self.alturaaa
+        
 
 # Classe do jogador
 class MeuBalao(Button):
@@ -143,10 +148,8 @@ class Test(App):
             'Comprar pão',
             ':)',
             'Bolacha',
-            'sedjfjfgofoajrfanfanafpojafafjoasfopfojajfpoafopajfopafjasopffasflslflf'
-            'sflsfkafosfksoafkosakfoksfokofkoaskfosakfoskfosakfopksafopksaofpksaofka',
-            'Agora falando sério',
-            'Quero compra sla, algo que não me lembro'
+            'Quero compra sla, algo que.',
+            'abffkpakpkpaksdpskadksapdkpakdpaksdpaksdpkasdk'
         ])
 setup()
 Test().run()
