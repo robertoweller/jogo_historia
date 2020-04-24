@@ -82,9 +82,7 @@ class CaylaFala(BoxLayout):
             )
         )
         # Adiciona o balão do desse lado ->
-        print(Adaptavel(texto).on_texture_size())
         self.add_widget(Adaptavel(texto))
-        
 
 
 # Balão da Cayla
@@ -92,7 +90,6 @@ class Adaptavel(Button):
     largura = 400
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
-        self.alturaaa=0
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
@@ -109,11 +106,7 @@ class Adaptavel(Button):
         self.width += sp(30)
         if self.width > self.largura:
             self.width = self.largura
-            # CaylaFala.height = 100
-            self.alturaaa = self.height
-        #print(self.alturaaa)
-        return self.alturaaa
-        
+
 
 # Classe do jogador
 class MeuBalao(Button):
@@ -141,7 +134,6 @@ class MeuBalao(Button):
 
 
 class Test(App):
-
     def build(self):
         return Mensagem([
             'Coisas para fazer hoje :))))))',
@@ -149,7 +141,7 @@ class Test(App):
             ':)',
             'Bolacha',
             'Quero compra sla, algo que.',
-            'abffkpakpkpaksdpskadksapdkpakdpaksdpaksdpkasdk'
+            'abffk..a kpk..aksd.,sksdpka'
         ])
 setup()
 Test().run()

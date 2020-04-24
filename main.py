@@ -22,16 +22,16 @@ class Mensagem(BoxLayout):
         self.orientation = 'vertical'
         self.todas_mensagnes = len(mensagem)
         self.conta = 0
+        self.tamanho = 0
         self.fala = []
         self.conversadas = []
+        # Balões usados
+        self.euu = 'img/balao_azul.png'
+        # Váriavel usada para salvar o arquivo de texto
         self.primeira = True
 
-        # O Clock atende o que eu quero, que é adicionar uma mensagem, depois de 4 segundo adiciona outra.
+        # Chama a mensagem a cada 4 segundo
         Clock.schedule_interval(self.chama_mensagem, 4)
-
-        # O for abaixo adicionava tudo de uma fez só
-        # for mensagem in mensagem:
-        #     self.ids.men.add_widget(Conteudo(text=mensagem))
 
     # Vai adicionar uma a uma as mensagens
     def chama_mensagem(self, sla):
@@ -43,7 +43,6 @@ class Mensagem(BoxLayout):
                 '@cay': CaylaFala(self.mensagem[self.conta][4:]),
                 '@euu': EuFala(text=self.mensagem[self.conta][4:])
             }
-
             # Procura dentro da biblioteca quem está falando e adicina o widget
             self.ids.box.add_widget(falas[self.mensagem[self.conta][:4]])
 
@@ -58,13 +57,14 @@ class Mensagem(BoxLayout):
             '@euu': EuFala(text=mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
+        
         self.ids.box.add_widget(falas[mifala[:4]])
 
         # Escrever no terminal a conversa que stá acontecendo
         print(mifala)
         self.conversadas.append(mifala)
         # Limpa o texto da caixa e deixa o @eeu, coloquei aqui o personagem que vai aparece mais, para facilitar
-        self.ids.mifala.text = '@euu '
+        self.ids.mifala.text = '@cay '
 
     def salva(self):
         if self.primeira:
@@ -87,37 +87,38 @@ class Mensagem(BoxLayout):
 
 # # Cayla [Cayla + adiciona(balão)]
 class CaylaFala(BoxLayout):
-    def __init__(self, texto='',**kwargs):
+    def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
+        self.cay = 'img/balao_rosa.png'
         self.padding=(10, 10, 0, 0)
         self.spacing = 10
         self.padding= (0, 20, 0, 10)
         self.add_widget(
             Button(
                 size_hint = (None, None),
-                pos_hint={'top':1.20},
-                width=100,
+                pos_hint={'top':1.2},
                 border=(0, 0, 0, 0),
                 background_normal = 'img/personagens/cayla_rosa.png',
                 background_down = 'img/personagens/cayla_rosa.png'
             ))
         # Balão adiciona balão da Cayla ao BoxLayout
-        self.add_widget(Adaptavel(texto))
+        self.add_widget(Adaptavel(texto=texto, balao = self.cay))
         # Aqui vai ser preciso ser adicionado algo que identifique quantas letras
         # foi escrito e adicione o widget que melhor atende a situação
 
 
 # Balão da Cayla
 class Adaptavel(Button):
-    def __init__(self, texto, **kwargs):
+    def __init__(self, texto, balao, **kwargs):
         super().__init__(**kwargs)
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
-        self.pos_hint = {'botton':1} 
-        self.background_normal = 'img/balao_rosa.png'
-        self.background_down = 'img/balao_rosa.png'
+        self.pos_hint = {'bottom':1} 
+        self.background_normal = balao
+        self.background_down = balao
+        
 
     def on_size(self, *args):
         self.text_size = (self.width - sp(30), None)
@@ -128,6 +129,9 @@ class Adaptavel(Button):
         self.width += sp(30)
         if self.width > 400:
             self.width = 400
+        
+        self.height = self.height
+
 
 
 # Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e outras imagens e uma adaptação gambiarra
@@ -135,6 +139,16 @@ class EuFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
         self.ids.meu.text = text
+
+
+# Personagem que está falando
+class Personagem(Button):
+    def __init__(self, person, **kwargs):
+        super().__init__(**kwargs)
+        self.size_hint = (None, None)
+        self.border = (0, 0, 0, 0)
+        self.background_normal = person
+        self.background_down = person
 
 
 # Label adapitavel
