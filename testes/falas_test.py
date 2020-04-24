@@ -4,10 +4,23 @@ from kivy.metrics import sp
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
+from kivy.config import Config
+
+def setup():
+
+    # Seta uma largura e altura and para a janela
+    Config.set('graphics', 'width', '720')
+    Config.set('graphics', 'height', '1280')
+
+    # Se for 0, não será possivel redimensionar e se for 1 será
+    Config.set('graphics', 'resizable', '1')
+    # Descomente essa linha para deixa tela chia
+    # Config.set('graphics', 'fullscreen', 'auto')
+    Config.write()
 
 
 # Não usada por enquanto
-class Cayla(Button):
+class Personagem(Button):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.size_hint = (None, None)
@@ -50,10 +63,10 @@ class CaylaFala(BoxLayout):
         self.padding= (0, 20, 0, 10)
         self.bb = BoxLayout()
         # Apagar o bb para adicionar ao box principal
-        self.bb.add_widget(
+        self.add_widget(
         Button(
                 size_hint = (None, None),
-                pos_hint={'center_y':.9},
+                pos_hint={'top':1.2},
                 width=100,
                 border=(0, 0, 0, 0),
                 background_normal = 'cayla_rosa.png',
@@ -62,7 +75,7 @@ class CaylaFala(BoxLayout):
         # Tenta seguir com a idéia de não adicionar a imagem caso se repita 
         # a(o) personagem falando
         # Adiciona um label vazio só para dar o espaço
-        self.add_widget(
+        self.bb.add_widget(
             Label(
                 size_hint = (None, None),
                 width = 100
@@ -123,6 +136,7 @@ class MeuBalao(Button):
 
 
 class Test(App):
+
     def build(self):
         return Mensagem([
             'Coisas para fazer hoje :))))))',
@@ -134,5 +148,5 @@ class Test(App):
             'Agora falando sério',
             'Quero compra sla, algo que não me lembro'
         ])
-
+setup()
 Test().run()
