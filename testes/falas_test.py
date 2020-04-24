@@ -3,6 +3,7 @@ from kivy.app import App
 from kivy.metrics import sp
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.uix.label import Label
 
 
 # Não usada por enquanto
@@ -36,7 +37,7 @@ class Mensagem(BoxLayout):
                     self.con = 0
             else:
                 # self.ids.box.add_widget(CaylaFala(tarefa))
-                self.ids.box.add_widget(MeuBalao(tarefa))
+                self.ids.box.add_widget(CaylaFala(tarefa))
 
 
 # Cayla [Cayla + adiciona(balão)]
@@ -47,15 +48,26 @@ class CaylaFala(BoxLayout):
         self.padding=(10, 10, 0, 0)
         self.spacing = 10
         self.padding= (0, 20, 0, 10)
-        self.add_widget(
-            Button(
+        self.bb = BoxLayout()
+        # Apagar o bb para adicionar ao box principal
+        self.bb.add_widget(
+        Button(
                 size_hint = (None, None),
-                pos_hint={'top':1.20},
+                pos_hint={'center_y':.9},
                 width=100,
                 border=(0, 0, 0, 0),
                 background_normal = 'cayla_rosa.png',
                 background_down = 'cayla_rosa.png'
             ))
+        # Tenta seguir com a idéia de não adicionar a imagem caso se repita 
+        # a(o) personagem falando
+        # Adiciona um label vazio só para dar o espaço
+        self.add_widget(
+            Label(
+                size_hint = (None, None),
+                width = 100
+            )
+        )
         # Adiciona o balão do desse lado ->
         self.add_widget(Adaptavel(texto))
 
