@@ -85,32 +85,37 @@ class Mensagem(BoxLayout):
                 # print(self.conversadas)
 
 
-# O balão adaptavel, de acordo com a quantidade de texto
+# # Cayla [Cayla + adiciona(balão)]
 class CaylaFala(BoxLayout):
     def __init__(self, texto='',**kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
         self.padding=(10, 10, 0, 0)
         self.spacing = 10
+        self.padding= (0, 20, 0, 10)
         self.add_widget(
             Button(
                 size_hint = (None, None),
+                pos_hint={'top':1.20},
                 width=100,
                 border=(0, 0, 0, 0),
                 background_normal = 'img/personagens/cayla_rosa.png',
                 background_down = 'img/personagens/cayla_rosa.png'
             ))
+        # Balão adiciona balão da Cayla ao BoxLayout
         self.add_widget(Adaptavel(texto))
         # Aqui vai ser preciso ser adicionado algo que identifique quantas letras
         # foi escrito e adicione o widget que melhor atende a situação
 
 
+# Balão da Cayla
 class Adaptavel(Button):
     def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
+        self.pos_hint = {'botton':1} 
         self.background_normal = 'img/balao_rosa.png'
         self.background_down = 'img/balao_rosa.png'
 
