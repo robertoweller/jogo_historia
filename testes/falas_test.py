@@ -30,13 +30,14 @@ class Personagem(Button):
 
 
 class Mensagem(BoxLayout):
-    def __init__(self, tarefas, **kwargs):
+    def __init__(self, texto, **kwargs):
         super().__init__(**kwargs)
         self.con = 0
+        
         # Se for True, não vai adicionar a imagem na quarta vez
         # Se for False, vai adicionar balão  imagem normalmente
         self.img = False
-        for tarefa in tarefas:
+        for tarefa in texto:
             self.con += 1
             # Quando a contagem chega à 4, só adiciona o balão
             if self.img:
@@ -50,6 +51,7 @@ class Mensagem(BoxLayout):
                     self.con = 0
             else:
                 # self.ids.box.add_widget(CaylaFala(tarefa))
+
                 self.ids.box.add_widget(CaylaFala(tarefa))
 
 
@@ -60,14 +62,35 @@ class CaylaFala(BoxLayout):
         self.orientation = 'horizontal'
         self.padding=(10, 10, 0, 0)
         self.spacing = 10
-        self.padding= (0, 20, 0, 10)
+        self.padding= (0, 45, 0, 10)
         self.bb = BoxLayout()
+
+        # Medindo cada letra
+        self.top = 0.
+        self.conta = 0.
+        self.mesma = 23.0
+        self.tam_letras = {
+            '.':.51,
+            ',':.51,
+            ' ':.49
+        }
+        for c in texto:
+            if c in self.tam_letras:
+                self.conta += self.tam_letras[c]
+            else:
+                self.conta += 1.0
+        if self.conta <= self.mesma:
+            print('\n Mesma linha \n', f'top: 1.2')
+            self.top = 1.2
+
+        else:
+            print(' Outra linha\n', 'top: 1.5')
+            self.top = 1.5
         # Apagar o bb para adicionar ao box principal
         self.add_widget(
         Button(
                 size_hint = (None, None),
-                pos_hint={'top':1.2},
-                width=100,
+                pos_hint={'top':self.top},
                 border=(0, 0, 0, 0),
                 background_normal = 'cayla_rosa.png',
                 background_down = 'cayla_rosa.png'
@@ -136,12 +159,9 @@ class MeuBalao(Button):
 class Test(App):
     def build(self):
         return Mensagem([
-            'Coisas para fazer hoje :))))))',
-            'Comprar pão',
-            ':)',
-            'Bolacha',
-            'Quero compra sla, algo que.',
-            'abffk..a kpk..aksd.,sksdpka'
+            ' aaa.aaaaaaaaaaaaaaaaa..',
+            ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         ])
 setup()
 Test().run()
