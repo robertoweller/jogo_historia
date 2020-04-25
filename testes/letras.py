@@ -3,13 +3,13 @@ conta = 0.
 mesma = 23.0
 
 dici_letra = {
-    '.':.51,
-    ',':.51,
+    '.':.88,
+    ',':.88,
     ' ':.49
 }
 
 
-palavra = 'aaa.aaaaaaaa aa a .aaa aa aaaaaaaaaaaaaaaaaaaaaaaa..'
+palavra = ' sfusufsoadjugaaaaaaaa aaau..............aaaaaaaaaaaaaaaa............................'
 
 for c in palavra:
     if c in dici_letra:
@@ -17,12 +17,19 @@ for c in palavra:
     else:
         conta += 1.0
 
+linhas = str(conta/mesma)
+# Dependendo da quantidades da linha top terá um valor diferente
+top = 1.5
+dimi = -0.2
+ll = dimi * (float(linhas[0])-3)
+
+top = top + ll
+
+linhas = float(linhas) + .3
+
 if conta <= mesma:
-    print('\n Mesma linha \n', f'top: 1.2')
+    print('\n Mesma linha \n', f'Apenas {str(linhas)[0]} linha', '\n top: 1.2')
 
 else:
-    print(' Outra linha\n', 'top: 1.5')
-
-
-
+    print(f' Outra linha\n', f'São {float(linhas)} linhas', f'\n top: {top}')
 
