@@ -9,7 +9,7 @@ dici_letra = {
 }
 
 
-palavra = 'aaaaaaaaaa aaa.aaaaaaa..'
+palavra = 'aaa.aaaaaaaa aa a .aaa aa aaaaaaaaaaaaaaaaaaaaaaaa..'
 
 for c in palavra:
     if c in dici_letra:
@@ -18,10 +18,10 @@ for c in palavra:
         conta += 1.0
 
 if conta <= mesma:
-    print('\n Mesma linha \n', conta)
+    print('\n Mesma linha \n', f'top: 1.2')
 
 else:
-    print(' Outra linha\n', conta)
+    print(' Outra linha\n', 'top: 1.5')
 
 
 
