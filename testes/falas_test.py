@@ -161,7 +161,10 @@ class Test(App):
         return Mensagem([
             ' aaa.aaaaaaaaaaaaaaaaa..',
             ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+            ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            # Quando tem 4 linhas ou mais ainda tem problema
+            # de a imagem invadir espaço de cima
+            ' sfusufsoadjugaaaaaaaa aaau..............aaaaaaaaaaaaaaaa............................'
         ])
 setup()
 Test().run()
