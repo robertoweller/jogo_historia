@@ -26,7 +26,8 @@ class Mensagem(BoxLayout):
         self.fala = []
         self.conversadas = []
         # Balões usados
-        self.euu = 'img/balao_azul.png'
+        self.euu_balao = 'img/balao_azul.png'
+        self.cay_balao = 'img/balao_rosa.png'
         # Váriavel usada para salvar o arquivo de texto
         self.primeira = True
 
@@ -40,7 +41,11 @@ class Mensagem(BoxLayout):
         if self.conta < self.todas_mensagnes:
             # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
-                '@cay': CaylaFala(self.mensagem[self.conta][4:]),
+                '@cay': CaylaFala(
+                    texto = self.mensagem[self.conta][4:], 
+                    balao = self.cay_balao,
+                    person = 'img/personagens/cayla_rosa.png'
+                    ),
                 '@euu': EuFala(text=self.mensagem[self.conta][4:])
             }
             # Procura dentro da biblioteca quem está falando e adicina o widget
@@ -53,7 +58,11 @@ class Mensagem(BoxLayout):
     def conversa_digitada(self):
         mifala = self.ids.mifala.text
         falas = {
-            '@cay': CaylaFala(mifala[4:]),
+            '@cay': CaylaFala(
+                texto = mifala[4:], 
+                balao = self.cay_balao,
+                person='img/personagens/cayla_rosa.png'
+                ),
             '@euu': EuFala(text=mifala[4:])
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
@@ -87,23 +96,48 @@ class Mensagem(BoxLayout):
 
 # # Cayla [Cayla + adiciona(balão)]
 class CaylaFala(BoxLayout):
-    def __init__(self, texto='', **kwargs):
+    def __init__(self, texto='', balao='', person='', **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
-        self.cay = 'img/balao_rosa.png'
-        self.padding=(10, 10, 0, 0)
+        self.balao = balao
+        self.person = person
+
+        self.padding=(10, 45, 0, 10)
         self.spacing = 10
-        self.padding= (0, 20, 0, 10)
+        
+        # Ajustando a altura da imagem
+        self.top = 0.
+        self.conta = 0.
+        self.mesma = 23.0
+        self.tam_letras = {
+            '.':.51,
+            ',':.51,
+            ' ':.49
+        }
+        for c in texto:
+            if c in self.tam_letras:
+                self.conta += self.tam_letras[c]
+            else:
+                self.conta += 1.0
+        if self.conta <= self.mesma:
+            print('\n Mesma linha \n', f'top: 1.2')
+            self.top = 1.2
+
+        else:
+            print(' Outra linha\n', 'top: 1.5')
+            self.top = 1.5
+        
         self.add_widget(
+            # Personagem que vai aparecer
             Button(
                 size_hint = (None, None),
-                pos_hint={'top':1.2},
+                pos_hint={'top': self.top},
                 border=(0, 0, 0, 0),
-                background_normal = 'img/personagens/cayla_rosa.png',
-                background_down = 'img/personagens/cayla_rosa.png'
+                background_normal = self.person,
+                background_down = self.person
             ))
         # Balão adiciona balão da Cayla ao BoxLayout
-        self.add_widget(Adaptavel(texto=texto, balao = self.cay))
+        self.add_widget(Adaptavel(texto=texto, balao = self.balao))
         # Aqui vai ser preciso ser adicionado algo que identifique quantas letras
         # foi escrito e adicione o widget que melhor atende a situação
 
@@ -115,6 +149,7 @@ class Adaptavel(Button):
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
+
         self.pos_hint = {'bottom':1} 
         self.background_normal = balao
         self.background_down = balao
