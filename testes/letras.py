@@ -8,8 +8,16 @@ dici_letra = {
     ' ':.49
 }
 
+top = {
+    0:1.2,
+    1:1.2,
+    2:1.5,
+    3:1.5,
+    4:1.3
+}
 
-palavra = ' sfusufsoadjugaaaaaaaa aaau..............aaaaaaaaaaaaaaaa............................'
+palavra = ' sfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+palavra = ' akkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'
 
 for c in palavra:
     if c in dici_letra:
@@ -18,18 +26,12 @@ for c in palavra:
         conta += 1.0
 
 linhas = str(conta/mesma)
+
+# Procura na biblioteca o primeiro numero inteiro e devolve qual valor de top
+acha = top[int(linhas[0])]
+
 # Dependendo da quantidades da linha top terá um valor diferente
-top = 1.5
-dimi = -0.2
-ll = dimi * (float(linhas[0])-3)
+print(f'Tem {linhas} linha(s) \ntop: {acha}')
 
-top = top + ll
 
-linhas = float(linhas) + .3
-
-if conta <= mesma:
-    print('\n Mesma linha \n', f'Apenas {str(linhas)[0]} linha', '\n top: 1.2')
-
-else:
-    print(f' Outra linha\n', f'São {float(linhas)} linhas', f'\n top: {top}')
 

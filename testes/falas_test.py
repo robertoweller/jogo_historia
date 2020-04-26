@@ -66,26 +66,8 @@ class CaylaFala(BoxLayout):
         self.bb = BoxLayout()
 
         # Medindo cada letra
-        self.top = 0.
-        self.conta = 0.
-        self.mesma = 23.0
-        self.tam_letras = {
-            '.':.51,
-            ',':.51,
-            ' ':.49
-        }
-        for c in texto:
-            if c in self.tam_letras:
-                self.conta += self.tam_letras[c]
-            else:
-                self.conta += 1.0
-        if self.conta <= self.mesma:
-            print('\n Mesma linha \n', f'top: 1.2')
-            self.top = 1.2
-
-        else:
-            print(' Outra linha\n', 'top: 1.5')
-            self.top = 1.5
+        self.top = 1
+        
         # Apagar o bb para adicionar ao box principal
         self.add_widget(
         Button(
@@ -117,8 +99,8 @@ class Adaptavel(Button):
         self.font_size = sp(30)
         self.text = texto
         self.pos_hint = {'bottom': 1}
-        self.background_normal = 'baloes/balao_rosa.png'
-        self.background_down = 'baloes/balao_rosa.png'
+        self.background_normal = 'baloes/cay_baixo.png'
+        self.background_down = 'baloes/cay_baixo.png'
         
     def on_size(self, *args):
         self.text_size = (self.width - sp(30), None)
@@ -159,12 +141,10 @@ class MeuBalao(Button):
 class Test(App):
     def build(self):
         return Mensagem([
-            ' aaa.aaaaaaaaaaaaaaaaa..',
-            ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            ' aaa.aa..',
             # Quando tem 4 linhas ou mais ainda tem problema
             # de a imagem invadir espaço de cima
-            ' sfusufsoadjugaaaaaaaa aaau..............aaaaaaaaaaaaaaaa............................'
+            ' sfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         ])
 setup()
 Test().run()
