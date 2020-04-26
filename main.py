@@ -26,8 +26,8 @@ class Mensagem(BoxLayout):
         self.fala = []
         self.conversadas = []
         # Balões usados
-        self.euu_balao = 'img/balao_azul.png'
-        self.cay_balao = 'img/balao_rosa.png'
+        self.euu_balao = 'img/baloes/balao_azul.png'
+        self.cay_balao = 'img/baloes/cay_baixo.png'
         # Váriavel usada para salvar o arquivo de texto
         self.primeira = True
 
@@ -106,26 +106,7 @@ class CaylaFala(BoxLayout):
         self.spacing = 10
         
         # Ajustando a altura da imagem
-        self.top = 0.
-        self.conta = 0.
-        self.mesma = 23.0
-        self.tam_letras = {
-            '.':.51,
-            ',':.51,
-            ' ':.49
-        }
-        for c in texto:
-            if c in self.tam_letras:
-                self.conta += self.tam_letras[c]
-            else:
-                self.conta += 1.0
-        if self.conta <= self.mesma:
-            print('\n Mesma linha \n', f'top: 1.2')
-            self.top = 1.2
-
-        else:
-            print(' Outra linha\n', 'top: 1.5')
-            self.top = 1.5
+        self.top = 1
         
         self.add_widget(
             # Personagem que vai aparecer
