@@ -63,10 +63,9 @@ class Mensagem(BoxLayout):
                     balao = 'baloes/cay_baixo.png'
                     ))
 
-
 # Personagem [Personagem + adiciona(balão)]
 class PersonFala(BoxLayout):
-    
+
     def __init__(self, texto='', person='', balao ='', **kwargs):
 
         super().__init__(**kwargs)
