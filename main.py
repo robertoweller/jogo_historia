@@ -26,10 +26,11 @@ class Mensagem(BoxLayout):
         self.conversadas = []
 
         # Balões usados
-        self.euu_balao = 'img/baloes/balao_azul.png'
+        self.euu_balao = 'img/baloes/eu_baixo.png'
         self.cay_balao = 'img/baloes/cay_baixo.png'
         # Personagens
         self.cayla = 'img/personagens/cayla_rosa.png'
+        self.eu_modelo = 'img/personagens/modelo.png'
 
         # Váriavel usada para salvar o arquivo de texto
         self.primeira = True
@@ -45,26 +46,35 @@ class Mensagem(BoxLayout):
             # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
                 '@cay': PersonFala(
+                    eu=False,
                     texto = self.mensagem[self.conta][4:], 
                     balao = self.cay_balao,
                     person = self.cayla
                     ),
-                '@euu': EuFala(text=self.mensagem[self.conta][4:])
+                '@euu': PersonFala(
+                    eu=True,
+                    texto=self.mensagem[self.conta][4:],
+                    balao=self.euu_balao,
+                    person= self.eu_modelo)
             }
+
             # Procura dentro da biblioteca quem está falando e adicina o widget
             self.ids.box.add_widget(falas[self.mensagem[self.conta][:4]])
 
             # Mostra a pessoa que está falando
             # print(self.mensagem[self.conta][:4])
+            
             self.conta += 1
 
     def conversa_digitada(self):
         mifala = self.ids.mifala.text
         falas = {
             '@cay': PersonFala(
+                eu=False,
                 texto = mifala[4:], 
                 balao = self.cay_balao,
                 person=self.cayla
+                
                 ),
             '@euu': EuFala(text=mifala[4:])
         }
@@ -100,7 +110,7 @@ class Mensagem(BoxLayout):
 # # Personagem [Person + adiciona(balão)]
 class PersonFala(BoxLayout):
 
-    def __init__(self, texto='', balao='', person='', **kwargs):
+    def __init__(self, texto='', balao='', person='', eu=False, **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
         self.balao = balao
@@ -112,19 +122,32 @@ class PersonFala(BoxLayout):
         self.spacing = 15
         # Ajuste da posiçao da imagem
         self.centro = 1
-        
-        self.add_widget(
-            # Personagem que vai aparecer
-            Button(
-                size_hint = (None, None),
-                pos_hint={'center': self.centro},
-                border=(0, 0, 0, 0),
-                background_normal = self.person,
-                background_down = self.person
-            ))
-        # Balão adicionado ao BoxLayout
-        self.add_widget(Adaptavel(texto=texto, balao = self.balao))
-        # Adicione um widget que melhor atenda a situação
+        if eu:
+            self.add_widget(Adaptavel(
+                texto=texto, 
+                balao = self.balao
+                ))
+            self.add_widget(Button(
+                    size_hint = (None, None),
+                    pos_hint = {'center':self.centro},
+                    border = (0, 0, 0, 0),
+                    background_normal = self.person,
+                    background_down= self.person
+            ))    
+
+        else:
+            self.add_widget(
+                # Personagem que vai aparecer
+                Button(
+                    size_hint = (None, None),
+                    pos_hint={'center': self.centro},
+                    border=(0, 0, 0, 0),
+                    background_normal = self.person,
+                    background_down = self.person
+                ))
+            # Balão adicionado ao BoxLayout
+            self.add_widget(Adaptavel(texto=texto, balao = self.balao))
+            # Adicione um widget que melhor atenda a situação
 
 
 # Classe dos balões
@@ -155,21 +178,12 @@ class Adaptavel(Button):
 
 
 
-# Vai fazer mesma tarefa que a classe CaylaFala, mas com outra configurações e outras imagens e uma adaptação gambiarra
+# Vai fazer mesma tarefa que a classe PersonFala, mas com outra configurações e outras imagens e uma adaptação gambiarra
 class EuFala(BoxLayout):
     def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
         self.ids.meu.text = text
 
-
-# Personagem que está falando
-class Personagem(Button):
-    def __init__(self, person, **kwargs):
-        super().__init__(**kwargs)
-        self.size_hint = (None, None)
-        self.border = (0, 0, 0, 0)
-        self.background_normal = person
-        self.background_down = person
 
 
 # Label adapitavel
@@ -189,8 +203,10 @@ class Adapita(Label):
 
 class PerdiTubes(App):
     def build(self):
-        # Coloque @euu antes da frase para o balão ser adicionado ao seu lado + sua imagem
-        # Ou coloque @cay antes para o balão ser adicionado do lado outra pessoa + a imagem da pessoa
+        """
+        Coloque @euu ou @cay antes da frase para passar para para classe mensagem
+        qual personagem está falando, então o personagem é adicionado a conversa
+        """
         return Mensagem(['@cay ...', 
         '@cay Coisas que precisa ser feito',
         '@cay Comprar mascara',
