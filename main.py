@@ -16,18 +16,21 @@ import os
 class Mensagem(BoxLayout):
     def __init__(self, mensagem, **kwargs):
         super().__init__(**kwargs)
-        # A classe incial estará esperando a classe mensagem como argumento
-        # Essa é aquela mensagem da lista da classe PerdiTubes
+        # Variáveis importantes para rodar o jogo
         self.mensagem = mensagem
         self.orientation = 'vertical'
         self.todas_mensagnes = len(mensagem)
         self.conta = 0
         self.tamanho = 0
-        self.fala = []
+        # Aqui dica as conversas que é salva no documento conversa.txt
         self.conversadas = []
+
         # Balões usados
         self.euu_balao = 'img/baloes/balao_azul.png'
         self.cay_balao = 'img/baloes/cay_baixo.png'
+        # Personagens
+        self.cayla = 'img/personagens/cayla_rosa.png'
+
         # Váriavel usada para salvar o arquivo de texto
         self.primeira = True
 
@@ -41,27 +44,27 @@ class Mensagem(BoxLayout):
         if self.conta < self.todas_mensagnes:
             # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
-                '@cay': CaylaFala(
+                '@cay': PersonFala(
                     texto = self.mensagem[self.conta][4:], 
                     balao = self.cay_balao,
-                    person = 'img/personagens/cayla_rosa.png'
+                    person = self.cayla
                     ),
                 '@euu': EuFala(text=self.mensagem[self.conta][4:])
             }
             # Procura dentro da biblioteca quem está falando e adicina o widget
             self.ids.box.add_widget(falas[self.mensagem[self.conta][:4]])
 
-            # Mostra a pessoa, se decomentar o [:4] mostra a conversa toda junto com a pessoa
+            # Mostra a pessoa que está falando
             # print(self.mensagem[self.conta][:4])
             self.conta += 1
 
     def conversa_digitada(self):
         mifala = self.ids.mifala.text
         falas = {
-            '@cay': CaylaFala(
+            '@cay': PersonFala(
                 texto = mifala[4:], 
                 balao = self.cay_balao,
-                person='img/personagens/cayla_rosa.png'
+                person=self.cayla
                 ),
             '@euu': EuFala(text=mifala[4:])
         }
@@ -94,44 +97,46 @@ class Mensagem(BoxLayout):
                 # print(self.conversadas)
 
 
-# # Cayla [Cayla + adiciona(balão)]
-class CaylaFala(BoxLayout):
+# # Personagem [Person + adiciona(balão)]
+class PersonFala(BoxLayout):
+
     def __init__(self, texto='', balao='', person='', **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
         self.balao = balao
         self.person = person
 
-        self.padding=(10, 45, 0, 10)
-        self.spacing = 10
-        
-        # Ajustando a altura da imagem
-        self.top = 1
+        # Espaçamento do topo e de baixo
+        self.padding=(0, 10, 0, 10)
+        # Espaçamento entre o o personagem e o balão
+        self.spacing = 15
+        # Ajuste da posiçao da imagem
+        self.centro = 1
         
         self.add_widget(
             # Personagem que vai aparecer
             Button(
                 size_hint = (None, None),
-                pos_hint={'top': self.top},
+                pos_hint={'center': self.centro},
                 border=(0, 0, 0, 0),
                 background_normal = self.person,
                 background_down = self.person
             ))
-        # Balão adiciona balão da Cayla ao BoxLayout
+        # Balão adicionado ao BoxLayout
         self.add_widget(Adaptavel(texto=texto, balao = self.balao))
-        # Aqui vai ser preciso ser adicionado algo que identifique quantas letras
-        # foi escrito e adicione o widget que melhor atende a situação
+        # Adicione um widget que melhor atenda a situação
 
 
-# Balão da Cayla
+# Classe dos balões
 class Adaptavel(Button):
     def __init__(self, texto, balao, **kwargs):
         super().__init__(**kwargs)
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
-
+        # Vai tentar deixar o balão sempre mais abaixo possivel
         self.pos_hint = {'bottom':1} 
+        # Fundo do balão
         self.background_normal = balao
         self.background_down = balao
         

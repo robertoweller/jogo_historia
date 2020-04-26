@@ -70,7 +70,6 @@ class PersonFala(BoxLayout):
 
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
-        self.padding=(10, 10, 0, 0)
         self.spacing = 15
         self.padding= (0, 10, 0, 10)
         self.top = 1
