@@ -44,56 +44,60 @@ class Mensagem(BoxLayout):
                 if self.con < 4:
                     # Quando a contagem é menor de 4
                     # Adiciona o balão e a imagem da Cayla jutos
-                    self.ids.box.add_widget(CaylaFala(tarefa))
+                    self.ids.box.add_widget(PersonFala(
+                        tarefa=tarefa,
+                        person='cayla_rosa.png'
+                        ))
                 else:
                     # Quando chega à 4 adiciona apenas o balão, e volta a contar
-                    self.ids.box.add_widget(Adaptavel(tarefa))
+                    self.ids.box.add_widget(Adaptavel(
+                        texto = tarefa,
+                        balao = 'cayla_rosa.png'))
                     self.con = 0
             else:
                 # self.ids.box.add_widget(CaylaFala(tarefa))
 
-                self.ids.box.add_widget(CaylaFala(tarefa))
+                self.ids.box.add_widget(PersonFala(
+                    texto=tarefa, 
+                    person='cayla_rosa.png',
+                    balao = 'baloes/cay_baixo.png'
+                    ))
 
 
-# Cayla [Cayla + adiciona(balão)]
-class CaylaFala(BoxLayout):
-    def __init__(self, texto='',**kwargs):
+# Personagem [Personagem + adiciona(balão)]
+class PersonFala(BoxLayout):
+    
+    def __init__(self, texto='', person='', balao ='', **kwargs):
+
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
         self.padding=(10, 10, 0, 0)
-        self.spacing = 10
-        self.padding= (0, 45, 0, 10)
-        self.bb = BoxLayout()
-
-        # Medindo cada letra
+        self.spacing = 15
+        self.padding= (0, 10, 0, 10)
         self.top = 1
         
-        # Apagar o bb para adicionar ao box principal
+        # Personagem
         self.add_widget(
         Button(
                 size_hint = (None, None),
-                pos_hint={'top':self.top},
+                pos_hint={'center':self.top},
                 border=(0, 0, 0, 0),
-                background_normal = 'cayla_rosa.png',
-                background_down = 'cayla_rosa.png'
+                background_normal = person,
+                background_down = person
             ))
-        # Tenta seguir com a idéia de não adicionar a imagem caso se repita 
-        # a(o) personagem falando
-        # Adiciona um label vazio só para dar o espaço
-        self.bb.add_widget(
-            Label(
-                size_hint = (None, None),
-                width = 100
-            )
-        )
+        
         # Adiciona o balão do desse lado ->
-        self.add_widget(Adaptavel(texto))
+        self.add_widget(
+            Adaptavel(
+                texto=texto,
+                balao=balao
+                ))
 
 
 # Balão da Cayla
 class Adaptavel(Button):
     largura = 400
-    def __init__(self, texto, **kwargs):
+    def __init__(self, texto, balao, **kwargs):
         super().__init__(**kwargs)
         self.size_hint = (None, None)
         self.font_size = sp(30)
@@ -135,16 +139,13 @@ class MeuBalao(Button):
         self.width += sp(30)
         if self.width > self.largura:
             self.width = self.largura
-            # CaylaFala.height = 100
 
 
 class Test(App):
     def build(self):
         return Mensagem([
             ' aaa.aa..',
-            # Quando tem 4 linhas ou mais ainda tem problema
-            # de a imagem invadir espaço de cima
-            ' sfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+            ' saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         ])
 setup()
 Test().run()
