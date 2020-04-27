@@ -77,7 +77,7 @@ class PersonFala(BoxLayout):
         # self.padding= (0, 0, 0, 0)
         self.top = 1
         self.size_hint = (None, None)
-        self.pos_hint = {'right':1}
+        self.pos_hint = {'x':2, 'y':0}
         #self.pos_hint={'right':1}
         # Se for eu, vai add minha classe, se não será a classe da cayla
         if eu:
@@ -92,7 +92,7 @@ class PersonFala(BoxLayout):
             self.add_widget(
                 Button(
                     size_hint = (None, None),
-                    pos_hint={'center':self.top},
+                    #pos_hint={'center':self.top},
                     border=(0, 0, 0, 0),
                     background_normal = person,
                     background_down = person))
@@ -101,7 +101,7 @@ class PersonFala(BoxLayout):
             self.add_widget(
             Button(
                     size_hint = (None, None),
-                    pos_hint={'center':self.top},
+                    #pos_hint={'center':self.top},
                     border=(0, 0, 0, 0),
                     background_normal = person,
                     background_down = person
