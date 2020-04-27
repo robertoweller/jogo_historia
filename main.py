@@ -76,7 +76,11 @@ class Mensagem(BoxLayout):
                 person=self.cayla
                 
                 ),
-            '@euu': EuFala(text=mifala[4:])
+            '@euu': PersonFala(
+                    eu=True,
+                    texto=mifala[4:],
+                    balao=self.euu_balao,
+                    person= self.eu_modelo)
         }
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         
@@ -129,7 +133,7 @@ class PersonFala(BoxLayout):
                 ))
             self.add_widget(Button(
                     size_hint = (None, None),
-                    pos_hint = {'center':self.centro},
+                    pos_hint = {'center': self.centro},
                     border = (0, 0, 0, 0),
                     background_normal = self.person,
                     background_down= self.person
@@ -175,15 +179,6 @@ class Adaptavel(Button):
             self.width = 400
         
         self.height = self.height
-
-
-
-# Vai fazer mesma tarefa que a classe PersonFala, mas com outra configurações e outras imagens e uma adaptação gambiarra
-class EuFala(BoxLayout):
-    def __init__(self, text='', **kwargs):
-        super().__init__(**kwargs)
-        self.ids.meu.text = text
-
 
 
 # Label adapitavel
