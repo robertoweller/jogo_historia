@@ -1,21 +1,14 @@
 from time import sleep as sl
 
-ad = 0
+# É assim que o jogo, basicamente, funciona
 lista = ['oi', 'tudo bem?', 'kkk', 'oi', 'vida boaaa']
-conta = []
 
 
-while True:
-    sl(2)
-    ad += 1
-    if ad <= len(lista):
-        for m in range(ad):
-            if m not in conta:
+for tam in range(len(lista)):
+    sl(2)  
+    print(lista[tam])
 
-                print(lista[m])
-                conta.append(m)
 
-    else:
-        break
+   
 print('Obrigada, por sua atenção ^.^ S2')
 
