@@ -2,6 +2,7 @@
 from kivy.app import App
 from kivy.metrics import sp
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.config import Config
@@ -57,7 +58,7 @@ class Mensagem(BoxLayout):
                     self.con = 0
             else:
                 # self.ids.box.add_widget(CaylaFala(tarefa))
-
+                
                 self.ids.box.add_widget(PersonFala(
                     eu=True,
                     texto=tarefa, 
@@ -73,15 +74,21 @@ class PersonFala(BoxLayout):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
         self.spacing = 15
-        self.padding= (0, 10, 0, 10)
+        # self.padding= (0, 0, 0, 0)
         self.top = 1
+        self.size_hint = (None, None)
+        self.pos_hint = {'right':1}
+        #self.pos_hint={'right':1}
+        # Se for eu, vai add minha classe, se não será a classe da cayla
         if eu:
             print('eu')
             self.add_widget(
+                # Add balão desse lado <-
                 Adaptavel(
                     texto=texto,
                     balao=balao
                     ))
+            # Personagem usado
             self.add_widget(
                 Button(
                     size_hint = (None, None),
@@ -108,7 +115,58 @@ class PersonFala(BoxLayout):
                     ))
 
 
-# Balão da Cayla
+# Personagem [Personagem + adiciona(balão)]
+# Classe adicionada para testar
+class AnchoFala(AnchorLayout):
+
+    def __init__(self, texto='', person='', balao ='', eu=False, **kwargs):
+
+        super().__init__(**kwargs)
+        self.orientation = 'horizontal'
+        self.spacing = 15
+        # self.padding= (0, 0, 0, 0)
+        self.top = 1
+        self.anchor_x='right'
+        self.anchor_y='bottom'
+        self.size_hint = (None, None)
+        #self.pos_hint={'right':1}
+        # Se for eu, vai add minha classe, se não será a classe da cayla
+        if eu:
+            print('eu')
+            self.add_widget(
+                # Add balão desse lado <-
+                Adaptavel(
+                    texto=texto,
+                    balao=balao
+                    ))
+            # Personagem usado
+            self.add_widget(
+                Button(
+                    size_hint = (None, None),
+                    pos_hint={'center':self.top},
+                    border=(0, 0, 0, 0),
+                    background_normal = person,
+                    background_down = person))
+        else:
+            # Personagem da Cayla
+            self.add_widget(
+            Button(
+                    size_hint = (None, None),
+                    pos_hint={'center':self.top},
+                    border=(0, 0, 0, 0),
+                    background_normal = person,
+                    background_down = person
+                ))
+            
+            # Adiciona o balão do desse lado ->
+            self.add_widget(
+                Adaptavel(
+                    texto=texto,
+                    balao=balao
+                    ))
+
+
+# Balão dos personagens
 class Adaptavel(Button):
     largura = 400
     def __init__(self, texto, balao, **kwargs):
@@ -116,7 +174,8 @@ class Adaptavel(Button):
         self.size_hint = (None, None)
         self.font_size = sp(30)
         self.text = texto
-        self.pos_hint = {'bottom': 1}
+        # self.pos_hint = {'bottom': 1}
+        self.pos_hint = {'right':1}
         self.background_normal = balao
         self.background_down = balao
         
