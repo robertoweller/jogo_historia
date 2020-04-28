@@ -12,19 +12,13 @@ class Mensagem(BoxLayout):
         super().__init__(**kwargs)
         for tarefa in tarefas:
             self.ids.box.add_widget(Widgets(tarefa))
-               
+              
 
 class Widgets(AnchorLayout):
     def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
         self.anchor_x='right'
         self.anchor_y='bottom'
-        
-        self.pri = BoxLayout(
-            size_hint_x = None,
-            size_hint_y = None,
-            height=100,
-            width=200)
 
         #self.orientation = 'horizontal'
         self.size_hint_y = None
@@ -50,6 +44,27 @@ class Widgets(AnchorLayout):
                 width=100,
             ))
         
+        self.lag1 = 0
+        self.ss = True
+        
+        # Calcula a largura dos dois Widgets
+        for largura in self.box.children[:]:
+            
+            if self.ss:
+                self.lag1 = largura.width
+                # print(largura.width)
+                self.ss = False
+            else:
+                self.lag1 += largura.width 
+        
+        self.pri = BoxLayout(
+            id = 'cima',
+            size_hint_x = None,
+            size_hint_y = None,
+            height=100,
+            width=self.lag1)
+             
+
         self.pri.add_widget(self.box)
 
         #  BoxLayout vai ficar dentro do AnchorLayout
