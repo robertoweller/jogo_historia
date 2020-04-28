@@ -20,7 +20,11 @@ class Widgets(AnchorLayout):
         self.anchor_x='right'
         self.anchor_y='bottom'
         
-        self.pri = BoxLayout()
+        self.pri = BoxLayout(
+            size_hint_x = None,
+            size_hint_y = None,
+            height=100,
+            width=200)
 
         #self.orientation = 'horizontal'
         self.size_hint_y = None
@@ -31,6 +35,13 @@ class Widgets(AnchorLayout):
             size_hint_y = None,
             height=100)
         
+        self.box.add_widget(Label(
+            text= 'AAAA', 
+            size_hint=(None, None), 
+            height=100, 
+            width=100
+            ))
+        
         self.box.add_widget(Button(
                 text=texto, 
                 font_size=30, 
@@ -38,12 +49,7 @@ class Widgets(AnchorLayout):
                 height=100,
                 width=100,
             ))
-        self.box.add_widget(Label(
-            text= 'AAAA', 
-            size_hint=(None, None), 
-            height=100, 
-            width=100
-            ))
+        
         self.pri.add_widget(self.box)
 
         #  BoxLayout vai ficar dentro do AnchorLayout
