@@ -19,16 +19,16 @@ class Widgets(AnchorLayout):
         super().__init__(**kwargs)
         self.anchor_x='right'
         self.anchor_y='bottom'
-        # AnchorLayout vai ficar dentro do BoxLayout
-        
-
-        # Se não der certo vou usar o label para empurrar ->
-        # self.add_widget(Label(size_hint=(1, 1))
+        #  BoxLayout vai ficar dentro do AnchorLayout
 
         #self.orientation = 'horizontal'
         self.size_hint_y = None
         #self.size_hint_x = None
-        
+        self.box = BoxLayout(
+            orientation='horizontal', 
+            spacing = 10,
+            size_hint=(1, 1),
+            height=100)
         
         self.add_widget(Button(
                 text=texto, 
@@ -36,8 +36,6 @@ class Widgets(AnchorLayout):
                 size_hint=(None,None),
                 height=100,
                 width=100,
-                
-
             ))
         self.add_widget(Label(
             text= 'AAAA', 
@@ -45,10 +43,7 @@ class Widgets(AnchorLayout):
             height=100, 
             width=100
             ))
-
         # self.add_widget(Label(size_hint=(1, 1)))
-
-
 
 class AssimAnchor(App):
     def build(self):
