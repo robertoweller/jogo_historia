@@ -12,7 +12,7 @@ class Mensagem(BoxLayout):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         for tarefa in tarefas:
-            self.ids.box.add_widget(Widgets(tarefa))
+            self.ids.box.add_widget(Original(tarefa))
               
 
 class Widgets(BoxLayout):
@@ -77,11 +77,13 @@ class Widgets(BoxLayout):
         
         self.add_widget(self.acho)
 
+
 class Original(BoxLayout):
     def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
         self.size_hint_y = None
-        # self.height = self.height
+        # Controla a altura do BoxLayout
+        #self.height = 150
 
         # E AnchorLayout vai ficar dentro da BoxLayout raiz
         self.acho = AnchorLayout(
@@ -93,14 +95,14 @@ class Original(BoxLayout):
             orientation='horizontal',
             spacing = 10,
             size_hint_y = None,
-            height=100)
+            width= 200)
         
         # No código original é o adaptavel
-        self.box.add_widget(Label(
-            text= 'Letra',
+        self.box.add_widget(Button(
+            text= 'Balão',
             size_hint=(None, None),
-            height=100,
-            width=100
+            height=150,
+            width=200
             ))
         
         self.box.add_widget(Button(
@@ -113,6 +115,7 @@ class Original(BoxLayout):
         
         self.lag1 = 0
         self.alt1 = 0
+        self.alt2 = 0
         self.ss = True
         
         # Calcula a largura dos dois Widgets
@@ -125,7 +128,7 @@ class Original(BoxLayout):
                 self.ss = False
             else:
                 self.lag1 += largura.width
-                self.alt1 += largura.height
+                # self.alt1 += largura.height
                 print(
                 f'\nwidth = {self.lag1}\n'
                 f'height = {self.alt1}\n'
@@ -136,7 +139,12 @@ class Original(BoxLayout):
             size_hint_y = None,
             width=self.lag1
             )
-        #self.height=largura.height
+        
+        # Altura do BoxLayout vai ser a altura do widgets que mais muda.
+        
+        # No caso é o botão das letras
+        print(f'\n {self.alt1}')
+        self.height=largura.height
 
         # self.box vai ficar dentro de self.pri
         self.pri.add_widget(self.box)
