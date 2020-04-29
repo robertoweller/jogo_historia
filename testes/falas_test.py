@@ -78,7 +78,6 @@ class PersonFala(BoxLayout):
         self.top = 1
         self.size_hint = (None, None)
         self.pos_hint = {'x':2.02, 'y':0}
-        #self.pos_hint={'right':1}
         # Se for eu, vai add minha classe, se não será a classe da cayla
         if eu:
             print('eu')
@@ -117,30 +116,34 @@ class PersonFala(BoxLayout):
 
 # Personagem [Personagem + adiciona(balão)]
 # Classe adicionada para testar
-class AnchoFala(AnchorLayout):
-
+class AnchoFala(BoxLayout):
     def __init__(self, texto='', person='', balao ='', eu=False, **kwargs):
 
         super().__init__(**kwargs)
-        self.orientation = 'horizontal'
-        self.spacing = 15
-        # self.padding= (0, 0, 0, 0)
-        self.top = 1
-        self.anchor_x='right'
-        self.anchor_y='bottom'
-        self.size_hint = (None, None)
-        #self.pos_hint={'right':1}
+        #self.size_hint_y = None
+        self.apaga = BoxLayout()
+        self.acho = AnchorLayout(
+            anchor_x='right', 
+            anchor_y='top',
+            size_hint_min_y = None)
+        
+        self.box = BoxLayout(
+            orientation='horizontal', 
+            spacing = 10,
+            size_hint_y = None,
+            height=100)
+
         # Se for eu, vai add minha classe, se não será a classe da cayla
         if eu:
             print('eu')
-            self.add_widget(
+            self.apaga.add_widget(
                 # Add balão desse lado <-
                 Adaptavel(
                     texto=texto,
                     balao=balao
                     ))
             # Personagem usado
-            self.add_widget(
+            self.box.add_widget(
                 Button(
                     size_hint = (None, None),
                     pos_hint={'center':self.top},
@@ -149,22 +152,57 @@ class AnchoFala(AnchorLayout):
                     background_down = person))
         else:
             # Personagem da Cayla
-            self.add_widget(
+            self.box.add_widget(
             Button(
+                    height=100,
+                    width=100,
                     size_hint = (None, None),
                     pos_hint={'center':self.top},
                     border=(0, 0, 0, 0),
                     background_normal = person,
                     background_down = person
                 ))
-            
+            self.box.add_widget(
+                Label(
+                    text=texto,
+                    font_size=30,
+                    height=100,
+                    width=100,
+                    size_hint = (None, None)
+                )
+            )
+
             # Adiciona o balão do desse lado ->
-            self.add_widget(
+            self.apaga.add_widget(
                 Adaptavel(
                     texto=texto,
                     balao=balao
                     ))
+        
+        self.lag1 = 0
+        self.ss = True
+        
+        # Calcula a largura dos dois Widgets
+        for largura in self.box.children[:]:
+            
+            if self.ss:
+                self.lag1 = largura.width
+                # print(largura.width)
+                self.ss = False
+            else:
+                self.lag1 += largura.width
+        
+        self.pri = BoxLayout(
+            size_hint_x = None,
+            size_hint_y = None,
+            width=self.lag1)
 
+        self.pri.add_widget(self.box)
+
+        #  BoxLayout vai ficar dentro do AnchorLayout
+        self.acho.add_widget(self.pri)
+        
+        self.add_widget(self.acho)
 
 # Balão dos personagens
 class Adaptavel(Button):
