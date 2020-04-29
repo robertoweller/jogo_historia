@@ -7,6 +7,7 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.config import Config
 
+
 def setup():
 
     # Seta uma largura e altura and para a janela
@@ -65,6 +66,7 @@ class Mensagem(BoxLayout):
                     person='cayla_rosa.png',
                     balao = self.eu_balao
                     ))
+
 
 # Personagem [Personagem + adiciona(balão)]
 class PersonFala(BoxLayout):

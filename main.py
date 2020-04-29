@@ -82,8 +82,12 @@ class Mensagem(BoxLayout):
                     balao=self.euu_balao,
                     person= self.eu_modelo)
         }
-        # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         
+        # Preciso por um indetificador se o texto passado tem o @<personagem> na
+        # biblioteca falas, para que quando não for passado qual personagme fala
+        # adicione o @euu falando automaticamente
+         
+        # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         self.ids.box.add_widget(falas[mifala[:4]])
 
         # Escrever no terminal a conversa que stá acontecendo
