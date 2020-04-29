@@ -1,3 +1,4 @@
+# assimanchor.kv é daqui
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -14,25 +15,29 @@ class Mensagem(BoxLayout):
             self.ids.box.add_widget(Widgets(tarefa))
               
 
-class Widgets(AnchorLayout):
+class Widgets(BoxLayout):
     def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
-        self.anchor_x='right'
-        self.anchor_y='bottom'
-
-        #self.orientation = 'horizontal'
         self.size_hint_y = None
-        #self.size_hint_x = None
+        # self.height = self.height
+
+        # E AnchorLayout vai ficar dentro da BoxLayout raiz
+        self.acho = AnchorLayout(
+            anchor_x='right', 
+            anchor_y='top',
+            size_hint_min_y = None)
+
         self.box = BoxLayout(
-            orientation='horizontal', 
+            orientation='horizontal',
             spacing = 10,
             size_hint_y = None,
             height=100)
         
+        # No código original é o adaptavel
         self.box.add_widget(Label(
-            text= 'AAAA', 
-            size_hint=(None, None), 
-            height=100, 
+            text= 'Letra',
+            size_hint=(None, None),
+            height=100,
             width=100
             ))
         
@@ -45,6 +50,7 @@ class Widgets(AnchorLayout):
             ))
         
         self.lag1 = 0
+        self.alt1 = 0
         self.ss = True
         
         # Calcula a largura dos dois Widgets
@@ -52,23 +58,24 @@ class Widgets(AnchorLayout):
             
             if self.ss:
                 self.lag1 = largura.width
+                self.alt1 = largura.height
                 # print(largura.width)
                 self.ss = False
             else:
-                self.lag1 += largura.width 
+                self.lag1 += largura.width
+                self.alt1 += largura.height
         
         self.pri = BoxLayout(
-            id = 'cima',
             size_hint_x = None,
             size_hint_y = None,
-            height=100,
             width=self.lag1)
-             
-
+            
         self.pri.add_widget(self.box)
 
         #  BoxLayout vai ficar dentro do AnchorLayout
-        self.add_widget(self.pri)
+        self.acho.add_widget(self.pri)
+        
+        self.add_widget(self.acho)
 
 class AssimAnchor(App):
     def build(self):
