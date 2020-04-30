@@ -13,7 +13,7 @@ class Mensagem(BoxLayout):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         for tarefa in tarefas:
-            self.ids.box.add_widget(Widgets(tarefa))
+            self.ids.box.add_widget(Original(tarefa))
               
 
 class Widgets(BoxLayout):
@@ -82,7 +82,7 @@ class Widgets(BoxLayout):
 class Original(BoxLayout):
     def __init__(self, texto='', **kwargs):
         super().__init__(**kwargs)
-        self.size_hint_y = None
+        self.size_hint_max_y = None
         # Controla a altura do BoxLayout
         #self.height = 150
 
@@ -95,8 +95,7 @@ class Original(BoxLayout):
         self.box = BoxLayout(
             orientation='horizontal',
             spacing = 10,
-            size_hint_y = None,
-            width= 200)
+            size_hint = (None, None))
         
         # No código original é o adaptavel (é do balão essa classe)
         self.box.add_widget(Adaptavel(
@@ -142,18 +141,21 @@ class Original(BoxLayout):
         
         # Altura do BoxLayout vai ser a altura do widgets que mais muda.
         
-        # No caso é o botão das letras
-        print(f'\n {self.alt1}')
-        self.height=largura.height
+        # No caso é o botão
+        # Minha camada raiz está travada na altura dos widgtes
+        # Mas por algum motivo quando os widtes almenta de altura
+        # a altura não é convertida aqui
+        self.height=self.alt1
+        #self.width= self.lag1
 
         # self.box vai ficar dentro de self.pri
-        self.pri.add_widget(self.box)
+        # self.pri.add_widget(self.box)
         
         
         # self.pri.size_hint_y = self.pri.size_hint_max_y
 
         #  BoxLayout vai ficar dentro do AnchorLayout
-        self.acho.add_widget(self.pri)
+        self.acho.add_widget(self.box)
         
         self.add_widget(self.acho)
 
@@ -180,6 +182,10 @@ class Adaptavel(Button):
         self.width += sp(30)
         if self.width > self.largura:
             self.width = self.largura
+
+
+class BoxTeste(BoxLayout):
+    pass
 
 
 class AssimAnchor(App):
