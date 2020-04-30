@@ -13,7 +13,7 @@ class Mensagem(BoxLayout):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         for tarefa in tarefas:
-            self.ids.box.add_widget(Original(tarefa))
+            self.ids.box.add_widget(Widgets(tarefa))
               
 
 class Widgets(BoxLayout):
