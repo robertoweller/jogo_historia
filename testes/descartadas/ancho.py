@@ -13,7 +13,7 @@ class Mensagem(BoxLayout):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         for tarefa in tarefas:
-            self.ids.box.add_widget(Original(tarefa))
+            self.ids.box.add_widget(TesteBox(texto=tarefa))
               
 
 class Widgets(BoxLayout):
@@ -77,6 +77,18 @@ class Widgets(BoxLayout):
         self.acho.add_widget(self.pri)
         
         self.add_widget(self.acho)
+
+
+class TesteBox(BoxLayout):
+    def __init__(self, texto='', **kwargs):
+        super().__init__(**kwargs)
+        self.add_widget(Adaptavel(texto=texto))
+        self.add_widget(Button(
+                    size_hint = (None, None),
+                    #pos_hint={'center':self.top},
+                    border=(0, 0, 0, 0),
+                    background_normal = 'cayla_rosa.png',
+                    background_down = 'cayla_rosa.png'))
 
 
 class Original(BoxLayout):
@@ -163,7 +175,7 @@ class Original(BoxLayout):
 # Balão dos personagens
 class Adaptavel(Button):
     largura = 400
-    def __init__(self, texto, balao, **kwargs):
+    def __init__(self, texto='', balao='eu_baixo.png', **kwargs):
         super().__init__(**kwargs)
         self.size_hint = (None, None)
         self.font_size = sp(30)
@@ -190,6 +202,6 @@ class BoxTeste(BoxLayout):
 
 class AssimAnchor(App):
     def build(self):
-        return Mensagem(['A', 'B', 'C'])
+        return Mensagem(['Aaaaaaaaaaaaaaaaaa', 'B', 'C', 'E', 'F', 'G', 'H'])
 
 AssimAnchor().run()
