@@ -41,31 +41,7 @@ class Mensagem(BoxLayout):
         # Se for False, vai adicionar balão  imagem normalmente
         self.img = False
         for tarefa in texto:
-            self.con += 1
-            # Quando a contagem chega à 4, só adiciona o balão
-            if self.img:
-                if self.con < 4:
-                    # Quando a contagem é menor de 4
-                    # Adiciona o balão e a imagem da Cayla jutos
-                    self.ids.box.add_widget(PersonFala(
-                        tarefa=tarefa,
-                        person='cayla_rosa.png'
-                        ))
-                else:
-                    # Quando chega à 4 adiciona apenas o balão, e volta a contar
-                    self.ids.box.add_widget(Adaptavel(
-                        texto = tarefa,
-                        balao = self.cayla_balao))
-                    self.con = 0
-            else:
-                # self.ids.box.add_widget(CaylaFala(tarefa))
-                
-                self.ids.box.add_widget(PersonFala(
-                    eu=True,
-                    texto=tarefa, 
-                    person='cayla_rosa.png',
-                    balao = self.eu_balao
-                    ))
+                self.ids.box.add_widget(EuFala(texto=tarefa))
 
 
 # Personagem [Personagem + adiciona(balão)]
@@ -83,6 +59,7 @@ class PersonFala(BoxLayout):
         # Se for eu, vai add minha classe, se não será a classe da cayla
         if eu:
             print('eu')
+            self.add_widget(Label())
             self.add_widget(
                 # Add balão desse lado <-
                 Adaptavel(
@@ -116,95 +93,16 @@ class PersonFala(BoxLayout):
                     ))
 
 
-# Personagem [Personagem + adiciona(balão)]
-# Classe adicionada para testar
-class AnchoFala(BoxLayout):
-    def __init__(self, texto='', person='', balao ='', eu=False, **kwargs):
-
+class EuFala(BoxLayout):
+    def __init__(self, texto='', person='modelo.png', balao='baloes/eu_baixo.png', **kwargs):
         super().__init__(**kwargs)
-        #self.size_hint_y = None
-        self.apaga = BoxLayout()
-        self.acho = AnchorLayout(
-            anchor_x='right', 
-            anchor_y='top',
-            size_hint_min_y = None)
-        
-        self.box = BoxLayout(
-            orientation='horizontal', 
-            spacing = 10,
-            size_hint_y = None,
-            height=100)
-
-        # Se for eu, vai add minha classe, se não será a classe da cayla
-        if eu:
-            print('eu')
-            self.apaga.add_widget(
-                # Add balão desse lado <-
-                Adaptavel(
-                    texto=texto,
-                    balao=balao
-                    ))
-            # Personagem usado
-            self.box.add_widget(
-                Button(
+        self.add_widget(Adaptavel(texto=texto, balao=balao))
+        self.add_widget(Button(
                     size_hint = (None, None),
-                    pos_hint={'center':self.top},
+                    #pos_hint={'center':self.top},
                     border=(0, 0, 0, 0),
                     background_normal = person,
                     background_down = person))
-        else:
-            # Personagem da Cayla
-            self.box.add_widget(
-            Button(
-                    height=100,
-                    width=100,
-                    size_hint = (None, None),
-                    pos_hint={'center':self.top},
-                    border=(0, 0, 0, 0),
-                    background_normal = person,
-                    background_down = person
-                ))
-            self.box.add_widget(
-                Label(
-                    text=texto,
-                    font_size=30,
-                    height=100,
-                    width=100,
-                    size_hint = (None, None)
-                )
-            )
-
-            # Adiciona o balão do desse lado ->
-            self.apaga.add_widget(
-                Adaptavel(
-                    texto=texto,
-                    balao=balao
-                    ))
-        
-        self.lag1 = 0
-        self.ss = True
-        
-        # Calcula a largura dos dois Widgets
-        for largura in self.box.children[:]:
-            
-            if self.ss:
-                self.lag1 = largura.width
-                # print(largura.width)
-                self.ss = False
-            else:
-                self.lag1 += largura.width
-        
-        self.pri = BoxLayout(
-            size_hint_x = None,
-            size_hint_y = None,
-            width=self.lag1)
-
-        self.pri.add_widget(self.box)
-
-        #  BoxLayout vai ficar dentro do AnchorLayout
-        self.acho.add_widget(self.pri)
-        
-        self.add_widget(self.acho)
 
 # Balão dos personagens
 class Adaptavel(Button):

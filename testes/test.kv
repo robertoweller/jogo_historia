@@ -6,7 +6,7 @@
             BoxLayout:
                 id:box
                 orientation:'vertical'
-                size_hint: None, None
+                size_hint_y: None
                 height:self.minimum_height+25
 
 # É uma classe BoxLayout
@@ -15,3 +15,9 @@
     size_hint:None, None
     height:self.minimum_height
     orientation: 'horizontal'
+
+<EuFala>:
+    size_hint_y: None
+    height:self.minimum_height
+    Label:
+        id:lab
