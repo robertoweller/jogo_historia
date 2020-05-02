@@ -81,11 +81,6 @@ class Mensagem(BoxLayout):
                     balao=self.euu_balao,
                     person= self.eu_modelo)
         }
-        
-        # Preciso por um indetificador se o texto passado tem o @<personagem> na
-        # biblioteca falas, para que quando não for passado qual personagme fala
-        # adicione o @euu falando automaticamente
-         
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         self.ids.box.add_widget(falas[mifala[:4]])
 
@@ -94,25 +89,6 @@ class Mensagem(BoxLayout):
         self.conversadas.append(mifala)
         # Limpa o texto da caixa e deixa o @eeu, coloquei aqui o personagem que vai aparece mais, para facilitar
         self.ids.mifala.text = '@cay '
-
-    def salva(self):
-        if self.primeira:
-            print(f'{self.mensagem}')
-            cov = f'{self.mensagem}'
-            if str(self.mensagem) != '[]':
-                # Mensagem salva no documento conversas.txt
-                os.system(f'echo "{cov}" > conversas.txt')
-            if str(self.conversadas) != '[]':
-                # print(self.conversadas)
-                cov = f'{self.mensagem}\n{self.conversadas}'
-                os.system(f'echo "{cov}" > conversas.txt')
-            self.primeira = False
-        else:
-            if str(self.conversadas) != '[]':
-                cov = f'{self.mensagem}\n{self.conversadas}'
-                os.system(f'echo "{cov}" > conversas.txt')
-                # print(self.conversadas)
-
 
 # # Personagem [Person + adiciona(balão)]
 class PersonFala(BoxLayout):
