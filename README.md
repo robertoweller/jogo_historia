@@ -1,10 +1,13 @@
-# Necessidades para o jogo, preciso de:
+# Etapa 2:
 
- - [X] Imagens de fundo (tenho alguns exemplos)
-- [X] Saber como dar o tempo de adicionar cada Label
-- [X] Definir qual paleta de cores será usadas (Por enquanto é o que está definido)
-- [X] Por imagem do personagem, representando a pessoa que fala
+Agora vem a fase de deixar com cara de jogo, esse projeto;
 
+ - [ ] Criar tela de carregamento inicial
+- [ ] Criar tela de enquanto joga
+- [ ] Criar uma forma de salvar onde o jogador parou
+- [ ] Criar uma caixa que vai aparece por cima, demonstrando ação do momento
+- [ ] Criar as opções que o jogador vai escolher para poder continuar e seguir sua rota
+- [ ] Criar esquema de carisma, que o protagonista vai ter que ganhar dos persoangens
 -------------------------------------
 # Idéia inicial 
 * Por um fundo bonito
