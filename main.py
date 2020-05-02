@@ -120,8 +120,6 @@ class PersonFala(BoxLayout):
     def __init__(self, texto='', balao='', person='', eu=False, **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'horizontal'
-        self.balao = balao
-        self.person = person
 
         # Espaçamento do topo e de baixo
         self.padding=(0, 10, 0, 10)
@@ -129,32 +127,19 @@ class PersonFala(BoxLayout):
         self.spacing = 15
         # Ajuste da posiçao da imagem
         self.centro = 1
-        if eu:
-            self.add_widget(Adaptavel(
-                texto=texto, 
-                balao = self.balao
-                ))
-            self.add_widget(Button(
-                    size_hint = (None, None),
-                    pos_hint = {'center': self.centro},
-                    border = (0, 0, 0, 0),
-                    background_normal = self.person,
-                    background_down= self.person
-            ))    
-
-        else:
-            self.add_widget(
-                # Personagem que vai aparecer
+   
+        self.add_widget(
+            # Personagem que vai aparecer
                 Button(
-                    size_hint = (None, None),
-                    pos_hint={'center': self.centro},
-                    border=(0, 0, 0, 0),
-                    background_normal = self.person,
-                    background_down = self.person
+                size_hint = (None, None),
+                pos_hint={'center': self.centro},
+                border=(0, 0, 0, 0),
+                background_normal = person,
+                background_down = person
                 ))
-            # Balão adicionado ao BoxLayout
-            self.add_widget(Adaptavel(texto=texto, balao = self.balao))
-            # Adicione um widget que melhor atenda a situação
+        # Balão adicionado ao BoxLayout
+        self.add_widget(Adaptavel(texto=texto, balao = balao))
+        # Adicione um widget que melhor atenda a situação
 
 class EuFala(BoxLayout):
     def __init__(self, texto='', person='modelo.png', balao='baloes/eu_baixo.png', **kwargs):
