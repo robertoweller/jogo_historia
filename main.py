@@ -144,6 +144,11 @@ class PersonFala(BoxLayout):
 class EuFala(BoxLayout):
     def __init__(self, texto='', person='modelo.png', balao='baloes/eu_baixo.png', **kwargs):
         super().__init__(**kwargs)
+        # Espaçamento entre balões
+        self.padding=(0, 10, 0, 10)
+        # Espaçamento entre o protagonista e o balão
+        self.spacing = 15
+
         self.add_widget(Adaptavel(texto=texto, balao=balao))
         self.add_widget(Button(
                     size_hint = (None, None),
