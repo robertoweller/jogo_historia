@@ -66,29 +66,6 @@ class Mensagem(BoxLayout):
             
             self.conta += 1
 
-    def conversa_digitada(self):
-        mifala = self.ids.mifala.text
-        falas = {
-            '@cay': PersonFala(
-                eu=False,
-                texto = mifala[4:], 
-                balao = self.cay_balao,
-                person=self.cayla
-                
-                ),
-            '@euu': EuFala(
-                    texto=mifala[4:],
-                    balao=self.euu_balao,
-                    person= self.eu_modelo)
-        }
-        # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
-        self.ids.box.add_widget(falas[mifala[:4]])
-
-        # Escrever no terminal a conversa que stá acontecendo
-        print(mifala)
-        self.conversadas.append(mifala)
-        # Limpa o texto da caixa e deixa o @eeu, coloquei aqui o personagem que vai aparece mais, para facilitar
-        self.ids.mifala.text = '@cay '
 
 # # Personagem [Person + adiciona(balão)]
 class PersonFala(BoxLayout):
