@@ -1,3 +1,4 @@
+# perditubes.kv é daqui
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -51,8 +52,7 @@ class Mensagem(BoxLayout):
                     balao = self.cay_balao,
                     person = self.cayla
                     ),
-                '@euu': PersonFala(
-                    eu=True,
+                '@euu': EuFala(
                     texto=self.mensagem[self.conta][4:],
                     balao=self.euu_balao,
                     person= self.eu_modelo)
@@ -76,8 +76,7 @@ class Mensagem(BoxLayout):
                 person=self.cayla
                 
                 ),
-            '@euu': PersonFala(
-                    eu=True,
+            '@euu': EuFala(
                     texto=mifala[4:],
                     balao=self.euu_balao,
                     person= self.eu_modelo)
@@ -157,6 +156,16 @@ class PersonFala(BoxLayout):
             self.add_widget(Adaptavel(texto=texto, balao = self.balao))
             # Adicione um widget que melhor atenda a situação
 
+class EuFala(BoxLayout):
+    def __init__(self, texto='', person='modelo.png', balao='baloes/eu_baixo.png', **kwargs):
+        super().__init__(**kwargs)
+        self.add_widget(Adaptavel(texto=texto, balao=balao))
+        self.add_widget(Button(
+                    size_hint = (None, None),
+                    #pos_hint={'center':self.top},
+                    border=(0, 0, 0, 0),
+                    background_normal = person,
+                    background_down = person))
 
 # Classe dos balões
 class Adaptavel(Button):
