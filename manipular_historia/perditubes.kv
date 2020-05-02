@@ -1,0 +1,45 @@
+<Mensagem>:
+    canvas:
+        Rectangle:
+            source: 'img/fundo_mensagem.png'
+            size: self.size
+    BoxLayout:
+        orientation:'vertical'
+        ScrollView:
+            BoxLayout:
+                id:box
+                orientation:'vertical'
+                size_hint_y:None
+                height:self.minimum_height+15
+    BoxLayout:
+        size_hint_y:None
+        size_hint_x:None
+        height: 50
+        width: 50
+        Button:
+            background_normal: 'img/icons/action_save.gif'
+            border: 2, 2, 2, 2
+            on_release:root.salva()
+
+    BoxLayout:
+        size_hint_y:None
+        height: 60
+        TextInput:
+            id: mifala
+            text: '@cay '
+        Button:
+            text:'+'
+            size_hint_x:None
+            width:60
+            on_release: root.conversa_digitada()
+
+
+<PersonFala>:
+    size_hint_y:None
+    height:self.minimum_height
+
+<EuFala>:
+    size_hint_y: None
+    height:self.minimum_height
+    Label:
+        id:lab
