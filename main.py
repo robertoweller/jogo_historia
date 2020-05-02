@@ -27,11 +27,11 @@ class Mensagem(BoxLayout):
         self.conversadas = []
 
         # Balões usados
-        self.euu_balao = 'img/baloes/eu_baixo.png'
-        self.cay_balao = 'img/baloes/cay_baixo.png'
+        self.euu_balao = 'manipular_historia/img/baloes/eu_baixo.png'
+        self.cay_balao = 'manipular_historia/img/baloes/cay_baixo.png'
         # Personagens
-        self.cayla = 'img/personagens/cayla_rosa.png'
-        self.eu_modelo = 'img/personagens/modelo.png'
+        self.cayla = 'manipular_historia/img/personagens/cayla_rosa.png'
+        self.eu_modelo = 'manipular_historia/img/personagens/modelo.png'
 
         # Váriavel usada para salvar o arquivo de texto
         self.primeira = True
@@ -142,7 +142,7 @@ class PersonFala(BoxLayout):
         # Adicione um widget que melhor atenda a situação
 
 class EuFala(BoxLayout):
-    def __init__(self, texto='', person='modelo.png', balao='baloes/eu_baixo.png', **kwargs):
+    def __init__(self, texto='', person='manipular_historia', balao='baloes/eu_baixo.png', **kwargs):
         super().__init__(**kwargs)
         # Espaçamento entre balões de cime e baixo e o final da janela
         self.padding=(0, 10, 10, 10)
