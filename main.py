@@ -144,8 +144,8 @@ class PersonFala(BoxLayout):
 class EuFala(BoxLayout):
     def __init__(self, texto='', person='modelo.png', balao='baloes/eu_baixo.png', **kwargs):
         super().__init__(**kwargs)
-        # Espaçamento entre balões
-        self.padding=(0, 10, 0, 10)
+        # Espaçamento entre balões de cime e baixo e o final da janela
+        self.padding=(0, 10, 10, 10)
         # Espaçamento entre o protagonista e o balão
         self.spacing = 15
 
