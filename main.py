@@ -26,7 +26,6 @@ class Mensagem(Screen, BoxLayout):
         self.tamanho = 0
         # Aqui dica as conversas que é salva no documento conversa.txt
         self.conversadas = []
-
         # Balões usados
         self.euu_balao = 'manipular_historia/img/baloes/eu_baixo.png'
         self.cay_balao = 'manipular_historia/img/baloes/cay_baixo.png'
