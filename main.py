@@ -4,6 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.clock import Clock
 from kivy.metrics import sp
 import os
@@ -14,7 +15,7 @@ import os
 '''
 
 # deixei como prevenção essa classe, caso eu erre
-class Mensagem(BoxLayout):
+class Mensagem(Screen, BoxLayout):
     def __init__(self, mensagem, **kwargs):
         super().__init__(**kwargs)
         # Variáveis importantes para rodar o jogo
@@ -25,7 +26,6 @@ class Mensagem(BoxLayout):
         self.tamanho = 0
         # Aqui dica as conversas que é salva no documento conversa.txt
         self.conversadas = []
-
         # Balões usados
         self.euu_balao = 'manipular_historia/img/baloes/eu_baixo.png'
         self.cay_balao = 'manipular_historia/img/baloes/cay_baixo.png'
@@ -38,6 +38,7 @@ class Mensagem(BoxLayout):
 
         # Chama a mensagem a cada 4 segundo
         Clock.schedule_interval(self.chama_mensagem, 4)
+
 
     # Vai adicionar uma a uma as mensagens
     def chama_mensagem(self, sla):
@@ -152,18 +153,36 @@ class Adapita(Label):
         self.size = self.texture_size
         self.height += sp(20)
 
+
+class Entrada(Screen):
+    pass
+
+
 class PerdiTubes(App):
-    def build(self):
-        """
-        Coloque @euu ou @cay antes da frase para passar para para classe mensagem
-        qual personagem está falando, então o personagem é adicionado a conversa
-        """
-        return Mensagem(['@cay ...', 
+    def carregou(self, sla):
+        # self.telas.current = 'jogando'
+        self.telas.add_widget(Mensagem(
+            name='jogando', 
+            mensagem=['@cay ...', 
         '@cay Coisas que precisa ser feito',
         '@cay Comprar mascara',
         '@cay :)',
         '@cay isdhghgwghqhgawfajrfjwafjapojsfopajfosajfopssadjasd',
-        '@euu Sim vc as vezes vc da uma pirada'])
+        '@euu Sim vc as vezes vc da uma pirada']))
+        self.telas.current = 'jogando'
+
+    def build(self):
+        Clock.schedule_once(self.carregou, 10)
+        """
+        Coloque @euu ou @cay antes da frase para passar para para classe mensagem
+        qual personagem está falando, então o personagem é adicionado a conversa
+        """
+        self.telas = ScreenManager()
+        
+
+        self.telas.add_widget(Entrada(name='carregamento'))
+        self.telas.current = 'carregamento'
+        return self.telas
 
 
 if __name__ == '__main__':
