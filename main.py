@@ -6,6 +6,7 @@ from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.clock import Clock
+from kivy.core.audio import SoundLoader
 from kivy.metrics import sp
 import os
 
@@ -173,6 +174,10 @@ class PerdiTubes(App):
 
     def build(self):
         Clock.schedule_once(self.carregou, 10)
+
+        self.sound = SoundLoader.load('loop.wav')
+        if self.sound:
+            self.sound.play()
         """
         Coloque @euu ou @cay antes da frase para passar para para classe mensagem
         qual personagem está falando, então o personagem é adicionado a conversa
