@@ -11,7 +11,17 @@
                 orientation:'vertical'
                 size_hint_y:None
                 height:self.minimum_height+15
-
+    BoxLayout:
+        size_hint_y: None
+        height:50
+        canvas:
+            Color:
+                rgb:.5, .5, 1.0
+            Rectangle:
+                pos: 0, 0
+                size: self.size
+        Label:
+            text:'Menu'
 
 <PersonFala>:
     size_hint_y:None

@@ -2,7 +2,7 @@
 
 Agora vem a fase de deixar com cara de jogo, esse projeto;
 
- - [ ] Criar tela de carregamento inicial
+- [ ] Criar tela de carregamento inicial
 - [ ] Criar tela de enquanto joga
 - [ ] Criar uma forma de salvar onde o jogador parou
 - [ ] Criar uma caixa que vai aparece por cima, demonstrando ação do momento
