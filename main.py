@@ -161,7 +161,11 @@ class Entrada(Screen):
 
 class PerdiTubes(App):
     def carregou(self, sla):
-        # self.telas.current = 'jogando'
+        # Toca som de abertura do jogo
+        self.sound = SoundLoader.load('magic-stinger.wav')
+        if self.sound:
+            self.sound.play()
+        
         self.telas.add_widget(Mensagem(
             name='jogando', 
             mensagem=['@cay ...', 
@@ -175,9 +179,6 @@ class PerdiTubes(App):
     def build(self):
         Clock.schedule_once(self.carregou, 10)
 
-        self.sound = SoundLoader.load('loop.wav')
-        if self.sound:
-            self.sound.play()
         """
         Coloque @euu ou @cay antes da frase para passar para para classe mensagem
         qual personagem está falando, então o personagem é adicionado a conversa
