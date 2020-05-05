@@ -71,7 +71,11 @@ Autor: Greek555
 Please Visit My Channel https://www.youtube.com/c/FlavioConcini
 Created With FL Studio. Enjoy !
 
+## [magic-stinger.wav](https://freesound.org/people/Robinhood76/sounds/516854/)
 
+Autor: Robinhood76
+
+Shine magical stinger sound usable in games
 
 ---
 ## License
