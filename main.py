@@ -43,9 +43,13 @@ class Mensagem(Screen, BoxLayout):
 
     # Vai adicionar uma a uma as mensagens
     def chama_mensagem(self, sla):
-
         # Quando acabar as mensagens vai parar de adicionar os widgets, isso é para não dar erro.
         if self.conta < self.todas_mensagnes:
+            # Cada vez que for falado vai tocar esse som
+            self.sound = SoundLoader.load('sons/click.ogg')
+            if self.sound:
+                self.sound.play()
+
             # Nessa narrativa são duas pessoas, mas da para adicionar mais pessoas
             falas = {
                 '@cay': PersonFala(
@@ -161,10 +165,6 @@ class Entrada(Screen):
 
 class PerdiTubes(App):
     def carregou(self, sla):
-        # Toca som de abertura do jogo
-        self.sound = SoundLoader.load('magic-stinger.wav')
-        if self.sound:
-            self.sound.play()
         
         self.telas.add_widget(Mensagem(
             name='jogando', 
@@ -177,6 +177,10 @@ class PerdiTubes(App):
         self.telas.current = 'jogando'
 
     def build(self):
+        # Toca som de abertura do jogo
+        self.sound = SoundLoader.load('sons/magic-stinger.wav')
+        if self.sound:
+            self.sound.play()
         Clock.schedule_once(self.carregou, 10)
 
         """
