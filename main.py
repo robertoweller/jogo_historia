@@ -5,6 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.uix.behaviors import ButtonBehavior
 from kivy.clock import Clock
 from kivy.core.audio import SoundLoader
 from kivy.metrics import sp
@@ -39,7 +40,6 @@ class Mensagem(Screen, BoxLayout):
 
         # Chama a mensagem a cada 4 segundo
         Clock.schedule_interval(self.chama_mensagem, 4)
-
 
     # Vai adicionar uma a uma as mensagens
     def chama_mensagem(self, sla):
@@ -159,11 +159,12 @@ class Adapita(Label):
         self.height += sp(20)
 
 
-class Entrada(Screen):
+class Entrada(Screen, ButtonBehavior):
     pass
 
 
 class PerdiTubes(App):
+
     def carregou(self, sla):
         
         self.telas.add_widget(Mensagem(
@@ -175,13 +176,19 @@ class PerdiTubes(App):
         '@cay isdhghgwghqhgawfajrfjwafjapojsfopajfosajfopssadjasd',
         '@euu Sim vc as vezes vc da uma pirada']))
         self.telas.current = 'jogando'
+    
+    # Pular a abertura, isso agiliza os testes
+    def on_start(self, *sla):
+        self.carregou(None)
 
     def build(self):
         # Toca som de abertura do jogo
         self.sound = SoundLoader.load('sons/magic-stinger.wav')
         if self.sound:
             self.sound.play()
-        Clock.schedule_once(self.carregou, 10)
+        
+        # Depois de pronto descomentar para simular abertura
+        #Clock.schedule_once(self.carregou, 10)
 
         """
         Coloque @euu ou @cay antes da frase para passar para para classe mensagem

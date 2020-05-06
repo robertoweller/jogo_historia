@@ -11,9 +11,11 @@
                 orientation:'vertical'
                 size_hint_y:None
                 height:self.minimum_height
+
     BoxLayout:
         size_hint_y: None
-        height:50
+        orientation:'vertical'
+        height:10
         canvas:
             Color:
                 rgb:.5, .5, 1.0
@@ -21,6 +23,7 @@
                 pos: 0, 0
                 size: self.size
         Label:
+            font_size:10
             text:'Menu'
 <Entrada>:
     canvas:
