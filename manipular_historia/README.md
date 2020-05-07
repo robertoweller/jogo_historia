@@ -1,11 +1,4 @@
-# Necessidades para o jogo, preciso de:
 
- - [ ] Imagens de fundo (tenho alguns exemplos)
-- [X] Saber como dar o tempo de adicionar cada Label
-- [X] Definir qual paleta de cores será usadas (Por enquanto é o que está definido)
-- [X] Por imagem do personagem, representando a pessoa que fala
-
--------------------------------------
 # Idéia inicial 
 * Por um fundo bonito
 * Por caixas de texto texturizadas, que serão adicionadas a cada 3 segundos?
