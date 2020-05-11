@@ -1,7 +1,7 @@
 # Etapa 2:
 
 Agora vem a fase de deixar com cara de jogo, esse projeto;
-- [X] Começar a criação do roteiro [aqui](https://robertoweller.github.io/perditubes/) está o roteiro em desenvolvimento
+- [X] Começar a criação do roteiro [aqui](https://robertoweller.github.io/perditubes/rascunhos/) está o roteiro em desenvolvimento
 - [ ] Criar tela de carregamento inicial
 - [ ] Criar tela de enquanto joga
 - [ ] Criar uma forma de salvar onde o jogador parou
