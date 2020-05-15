@@ -153,6 +153,7 @@ class Original(BoxLayout):
         
         # Altura do BoxLayout vai ser a altura do widgets que mais muda.
         
+<<<<<<< Updated upstream:manipular_historia/testes/descartadas/ancho.py
         # No caso é o botão
         # Minha camada raiz está travada na altura dos widgtes
         # Mas por algum motivo quando os widtes almenta de altura
@@ -160,6 +161,12 @@ class Original(BoxLayout):
         self.height=self.alt1
         #self.width= self.lag1
 
+=======
+        # No caso é o botão das letras
+        print(f'\n {self.alt1}')
+        self.height=largura.height
+        print(f'\n {self.height}')
+>>>>>>> Stashed changes:testes/descartadas/ancho.py
         # self.box vai ficar dentro de self.pri
         # self.pri.add_widget(self.box)
         
@@ -182,8 +189,8 @@ class Adaptavel(Button):
         self.text = texto
         # self.pos_hint = {'bottom': 1}
         self.pos_hint = {'right':1}
-        self.background_normal = balao
-        self.background_down = balao
+        # self.background_normal = balao
+        # self.background_down = balao
         
     def on_size(self, *args):
         self.text_size = (self.width - sp(30), None)

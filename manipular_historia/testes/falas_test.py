@@ -55,11 +55,15 @@ class PersonFala(BoxLayout):
         # self.padding= (0, 0, 0, 0)
         self.top = 1
         self.size_hint = (None, None)
-        self.pos_hint = {'x':2.02, 'y':0}
+        self.pos_hint = {'x':2.69, 'y':0}
         # Se for eu, vai add minha classe, se não será a classe da cayla
         if eu:
             print('eu')
+<<<<<<< Updated upstream:manipular_historia/testes/falas_test.py
             self.add_widget(Label())
+=======
+            
+>>>>>>> Stashed changes:testes/falas_test.py
             self.add_widget(
                 # Add balão desse lado <-
                 Adaptavel(
@@ -155,8 +159,8 @@ class MeuBalao(Button):
 class Test(App):
     def build(self):
         return Mensagem([
-            ' aaa.aa..',
-            ' saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+            'Fala testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee \n\n\n\n',
+            'Fala teste \n\n\n\n'
         ])
 setup()
 Test().run()
