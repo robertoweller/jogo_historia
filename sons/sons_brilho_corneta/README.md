@@ -4,11 +4,24 @@ Esses sons não defitivos para ser usados nas cenas do jogo, eles são começar 
 
 # Crédito
 Autor: Bart Kelsey
+
 Link para dowloads:
+https://opengameart.org/content/spell-1
+https://opengameart.org/content/spell-2
+https://opengameart.org/content/spell-3
+https://opengameart.org/content/spell-4
+https://opengameart.org/content/whoosh-1
+https://opengameart.org/content/whoosh-2
 https://opengameart.org/content/monster-1
 
 # Credits
 Author: Bart Kelsey
 
 Download links:
+https://opengameart.org/content/spell-1
+https://opengameart.org/content/spell-2
+https://opengameart.org/content/spell-3
+https://opengameart.org/content/spell-4
 https://opengameart.org/content/monster-1
+https://opengameart.org/content/whoosh-1
+https://opengameart.org/content/whoosh-2
