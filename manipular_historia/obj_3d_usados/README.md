@@ -14,3 +14,11 @@ https://opengameart.org/users/cemkalyoncu
 # isaac-jarnagin-NVigpRoOVK4-unsplash.jpg
 
 Photo by isaac jarnagin on Unsplash
+
+# ceiling_tile_04.zip
+
+Aqui as pricipis texturas usadas na cena
+Autor(Author): para
+https://opengameart.org/users/para
+https://opengameart.org/content/ceiling-tile-texture
+
