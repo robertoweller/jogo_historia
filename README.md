@@ -1,7 +1,7 @@
 # Etapa 2:
 
 
-[Imagem do Jogo](github.com/robertoweller/jogo_historia/blob/master/manipular_historia/img/jogoooo.png)
+[Imagem do Jogo](http://github.com/robertoweller/jogo_historia/blob/master/manipular_historia/img/jogoooo.png)
 
 
 
