@@ -1,6 +1,6 @@
 # Etapa 2:
 
-
+## Imagem de como o jogo está
 ![Imagem do Jogo](jogoooo.png)
 
 
