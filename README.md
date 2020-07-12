@@ -1,5 +1,11 @@
 # Etapa 2:
 
+
+[Imagem do Jogo](https://raw.githubusercontent.com/robertoweller/jogo_historia/master/manipular_historia/img/jogoooo.png)
+
+
+
+
 Agora vem a fase de deixar com cara de jogo, esse projeto;
 - [X] Começar a criação do roteiro [aqui](https://robertoweller.github.io/perditubes/rascunhos/) está o roteiro em desenvolvimento
 - [ ] Criar tela de carregamento inicial
