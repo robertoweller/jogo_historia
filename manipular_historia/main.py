@@ -1,4 +1,4 @@
-# perditubes.kv é daqui
+# perditubes.kv  daqui
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -14,6 +14,8 @@ import os
 '''
 
 # deixei como prevenção essa classe, caso eu erre
+
+
 class Mensagem(BoxLayout):
     def __init__(self, mensagem, **kwargs):
         super().__init__(**kwargs)
@@ -48,14 +50,14 @@ class Mensagem(BoxLayout):
             falas = {
                 '@cay': PersonFala(
                     eu=False,
-                    texto = self.mensagem[self.conta][4:], 
-                    balao = self.cay_balao,
-                    person = self.cayla
-                    ),
+                    texto=self.mensagem[self.conta][4:],
+                    balao=self.cay_balao,
+                    person=self.cayla
+                ),
                 '@euu': EuFala(
                     texto=self.mensagem[self.conta][4:],
                     balao=self.euu_balao,
-                    person= self.eu_modelo)
+                    person=self.eu_modelo)
             }
 
             # Procura dentro da biblioteca quem está falando e adicina o widget
@@ -63,7 +65,7 @@ class Mensagem(BoxLayout):
 
             # Mostra a pessoa que está falando
             # print(self.mensagem[self.conta][:4])
-            
+
             self.conta += 1
 
     def conversa_digitada(self):
@@ -71,21 +73,21 @@ class Mensagem(BoxLayout):
         falas = {
             '@cay': PersonFala(
                 eu=False,
-                texto = mifala[4:], 
-                balao = self.cay_balao,
+                texto=mifala[4:],
+                balao=self.cay_balao,
                 person=self.cayla
-                
-                ),
+
+            ),
             '@euu': EuFala(
-                    texto=mifala[4:],
-                    balao=self.euu_balao,
-                    person= self.eu_modelo)
+                texto=mifala[4:],
+                balao=self.euu_balao,
+                person=self.eu_modelo)
         }
-        
+
         # Preciso por um indetificador se o texto passado tem o @<personagem> na
         # biblioteca falas, para que quando não for passado qual personagme fala
         # adicione o @euu falando automaticamente
-         
+
         # Coloquei opção de adicionar fala digitada para me ajudar no roteiro da história
         self.ids.box.add_widget(falas[mifala[:4]])
 
@@ -122,42 +124,45 @@ class PersonFala(BoxLayout):
         self.orientation = 'horizontal'
 
         # Espaçamento do topo e de baixo
-        self.padding=(0, 10, 0, 10)
+        self.padding = (0, 10, 0, 10)
         # Espaçamento entre o o personagem e o balão
         self.spacing = 15
         # Ajuste da posiçao da imagem
         self.centro = 1
-   
+
         self.add_widget(
             # Personagem que vai aparecer
-                Button(
-                size_hint = (None, None),
+            Button(
+                size_hint=(None, None),
                 pos_hint={'center': self.centro},
                 border=(0, 0, 0, 0),
-                background_normal = person,
-                background_down = person
-                ))
+                background_normal=person,
+                background_down=person
+            ))
         # Balão adicionado ao BoxLayout
-        self.add_widget(Adaptavel(texto=texto, balao = balao))
+        self.add_widget(Adaptavel(texto=texto, balao=balao))
         # Adicione um widget que melhor atenda a situação
+
 
 class EuFala(BoxLayout):
     def __init__(self, texto='', person='modelo.png', balao='baloes/eu_baixo.png', **kwargs):
         super().__init__(**kwargs)
         # Espaçamento entre balões de cime e baixo e o final da janela
-        self.padding=(0, 10, 10, 10)
+        self.padding = (0, 10, 10, 10)
         # Espaçamento entre o protagonista e o balão
         self.spacing = 15
 
         self.add_widget(Adaptavel(texto=texto, balao=balao))
         self.add_widget(Button(
-                    size_hint = (None, None),
-                    #pos_hint={'center':self.top},
-                    border=(0, 0, 0, 0),
-                    background_normal = person,
-                    background_down = person))
+            size_hint=(None, None),
+            # pos_hint={'center':self.top},
+            border=(0, 0, 0, 0),
+            background_normal=person,
+            background_down=person))
 
 # Classe dos balões
+
+
 class Adaptavel(Button):
     def __init__(self, texto, balao, **kwargs):
         super().__init__(**kwargs)
@@ -165,11 +170,10 @@ class Adaptavel(Button):
         self.font_size = sp(30)
         self.text = texto
         # Vai tentar deixar o balão sempre mais abaixo possivel
-        self.pos_hint = {'bottom':1} 
+        self.pos_hint = {'bottom': 1}
         # Fundo do balão
         self.background_normal = balao
         self.background_down = balao
-        
 
     def on_size(self, *args):
         self.text_size = (self.width - sp(30), None)
@@ -180,13 +184,13 @@ class Adaptavel(Button):
         self.width += sp(30)
         if self.width > 400:
             self.width = 400
-        
+
         self.height = self.height
 
 
 # Label adapitavel
 class Adapita(Label):
-    def __init__(self, text= '', **kwargs):
+    def __init__(self, text='', **kwargs):
         super().__init__(**kwargs)
         self.size_hint = (1, None)
         self.font_size = sp(30)
@@ -199,18 +203,19 @@ class Adapita(Label):
         self.size = self.texture_size
         self.height += sp(20)
 
+
 class PerdiTubes(App):
     def build(self):
         """
         Coloque @euu ou @cay antes da frase para passar para para classe mensagem
         qual personagem está falando, então o personagem é adicionado a conversa
         """
-        return Mensagem(['@cay ...', 
-        '@cay Coisas que precisa ser feito',
-        '@cay Comprar mascara',
-        '@cay :)',
-        '@cay isdhghgwghqhgawfajrfjwafjapojsfopajfosajfopssadjasd',
-        '@euu Sim vc as vezes vc da uma pirada'])
+        return Mensagem(['@cay ...',
+                         '@cay Coisas que precisa ser feito',
+                         '@cay Comprar mascara',
+                         '@cay :)',
+                         '@cay isdhghgwghqhgawfajrfjwafjapojsfopajfosajfopssadjasd',
+                         '@euu Sim vc as vezes vc da uma pirada'])
 
 
 if __name__ == '__main__':
