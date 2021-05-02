@@ -27,7 +27,7 @@ do tamanho do texto, mas acho que vou deixar com um tempo genérico
    - Por conta da forma que o kivy trabalha a biblioteca gráfica é ótima e acelerada
    - Também quero integrar esse projeto, num futuro próximo, aos dispositivos androids, kivy facilita isso.
 * Jogo será para meninas?
-   - Jogo tentará abranger ambos o público,
+   - Jogo tentará abranger ambos os públicos,
    - mas acredito que pode só um tipo de público poderá gostar mais.
 * Terá cores vivas ?
    - Agora só consigo pensar em cores azul, preto, branco e rosa, não sei se rosa vai ser bom por.(para tentar atingir vários públicos)
